@@ -14,13 +14,28 @@
     <section class="content">
         <!-- Default box -->
         <div class="box">
-            
-                <div class="box-body">                    
+            <!-- key word: validate form laravel : check lỗi request -->
+            <div class="box-body">   
+                <!-- @if ($errors->any())
+                 <div class="alert alert-danger">
+               <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                 </div>
+                @endif                  -->
                     <form role="form" action="" method="POST">
+
+                    <!-- @csrf ko bị lỗi  page expried  419 laravel -->
+                    @csrf
                         <div class="col-sm-8">
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->first('c_name') ? 'has-error' : ''}}" >
                                 <label for="nam">Name <span class="text-danger">(*)</span></label>
                                 <input type="text" class="form-control" name="c_name"  placeholder="Name ...">
+                                @if ($errors->first('c_name'))
+                                    <span class="text-danger">{{ $errors->first('c_name')}}</span>
+                                @endif
                             </div>
                              
                         </div>
