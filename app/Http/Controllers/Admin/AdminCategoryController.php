@@ -12,7 +12,11 @@ use Illuminate\Http\Request;
 class AdminCategoryController extends AdminController
 {
     public function index(){
-       return view('admin.category.index');
+        $categories = Category::paginate(2);
+        $viewData =[
+            'categories' => $categories
+        ];
+       return view('admin.category.index',$viewData);
     }
     public function create(){
         return view('admin.category.create');
@@ -20,6 +24,7 @@ class AdminCategoryController extends AdminController
     public function store(AdminRequestCategory $request){
         //gán data
         $data = $request->except('_token');
+        // except lấy tất cả trừ  giá trị 'token' đc thêm
         $data['c_slug']     = Str::slug($request->c_name);
         $data['created_at']  = Carbon::now();
         

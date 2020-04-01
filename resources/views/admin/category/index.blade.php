@@ -28,29 +28,49 @@
                                     <th>Avatar</th>
                                     <th>Status</th>
                                     <th>Hot</th>
+                                    <th>Time</th>
                                     <th>Action</th>
                                 </tr>
+                                @if ($categories)
+                                @foreach ($categories as $category)
                                 <tr>
-                                    <td>1.</td>
-                                    <td>Update software</td>
-                                    <td>Update software</td>
-                                    <td>Update software</td>
-                                    <td>Update software</td>
+                                    <td>{{ $category->id}}</td>
+                                    <td>{{ $category->c_name}}</td>
                                     <td>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                        </div>
+                                        <img src="{{ asset('img/no-image.jpg')}}" style="width:80px;height:80px"></img>
                                     </td>
-                                    <td><span class="badge bg-red">55%</span></td>
+                                    <td>
+                                        @if ($category->c_status == 1)
+                                        <a href="{{ route('admin.category.active',$category->id)}}" class="label label-info">Show</a>
+                                        @else
+                                        <a href="{{ route('admin.category.active',$category->id)}}" class="label label-default">Hide</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($category->c_hot == 1)
+                                        <a href="{{ route('admin.category.hot',$category->id)}}" class="label label-info">Hot</a>
+                                        @else
+                                        <a href="{{ route('admin.category.hot',$category->id)}}" class="label label-default">None</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{ $category->created_at}}
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.category.update',$category->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a>
+                                        <a href="" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
+
+                                    </td>
                                 </tr>
-                               
+                                @endforeach
+                               @endif
                             </tbody>
                         </table>
 
                     </div>
 
                     <div class="box-footer">
-                        Footer
+                        {!! $categories->links() !!}
                     </div>
 
                 </div>
