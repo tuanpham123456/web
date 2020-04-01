@@ -58,7 +58,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.category.update',$category->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a>
-                                        <a href="" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
+                                        <a href="{{ route('admin.category.delete',$category->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
 
                                     </td>
                                 </tr>

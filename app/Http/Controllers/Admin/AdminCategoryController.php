@@ -50,4 +50,28 @@ class AdminCategoryController extends AdminController
         return redirect()->back();
 
     }
+
+    // edit ,update
+    public function edit($id){
+        $category = Category::find($id);
+        return view('admin.category.update',compact('category'));
+    }
+    public function update(AdminRequestCategory $request, $id)
+    {
+        $category           = Category::find($id);
+        $data               = $request->except('_token');
+        $data['c_slug']     = Str::slug($request->c_name);
+        $data['updated_at'] = Carbon::now(); 
+
+        $category->update($data);
+        return redirect()->back();
+    }
+    //delete
+    public function delete($id)
+    {
+        $category = Category::find($id);
+        if ($category) $category->delete();
+
+        return redirect()->back();
+    }
 }
