@@ -42,8 +42,8 @@
                         <div class="col-sm-4"></div>
                         <div class="col-sm-12">
                             <div class="box-footer text-center">
-                                <a href="{{route('admin.category.create')}}" class="btn btn-danger">Quay lại</a>
-                                <button type="submit" class="btn btn-success">Lưu dữ liệu</button>
+                                <a href="{{route('admin.category.index')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Quay lại</a>
+                                <button type="submit" class="btn btn-success">Lưu dữ liệu  <i class="fa fa-save"></i></button>
                             </div>
                         </div>
                     </form>

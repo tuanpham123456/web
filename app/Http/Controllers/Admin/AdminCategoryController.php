@@ -34,4 +34,20 @@ class AdminCategoryController extends AdminController
         // 
         return redirect()->back();
     }
+
+    public function active($id){
+        $category = Category::find($id);
+        $category->c_status = ! $category->c_status;
+        $category->save();
+        return redirect()->back();
+
+    }
+
+    public function hot($id){
+        $category = Category::find($id);
+        $category->c_hot = ! $category->c_hot;
+        $category->save();
+        return redirect()->back();
+
+    }
 }
