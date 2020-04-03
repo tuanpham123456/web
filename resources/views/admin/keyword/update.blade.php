@@ -5,7 +5,7 @@
         <h1>Cập nhật mục sản phẩm</h1>
         <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="{{  route('admin.category.index') }}"> Category</a></li>
+            <li><a href="{{  route('admin.keyword.index') }}"> keyword</a></li>
             <li class="active"> Update</a>
             </li>
         </ol>
@@ -30,19 +30,27 @@
                     <!-- @csrf ko bị lỗi  page expried  419 laravel -->
                     @csrf
                         <div class="col-sm-8">
-                        <div class="form-group {{ $errors->first('c_name') ? 'has-error' : ''}}" >
+                        <div class="form-group {{ $errors->first('k_name') ? 'has-error' : ''}}" >
                                 <label for="nam">Name <span class="text-danger">(*)</span></label>
-                                <input type="text" class="form-control" name="c_name"  placeholder="Name ..." value="{{ $category->c_name}}">
-                                @if ($errors->first('c_name'))
-                                    <span class="text-danger">{{ $errors->first('c_name')}}</span>
+                                <input type="text" class="form-control" name="k_name"  placeholder="Name ..." value="{{ $keyword->k_name}}">
+                                @if ($errors->first('k_name'))
+                                    <span class="text-danger">{{ $errors->first('k_name')}}</span>
                                 @endif
                             </div>
                              
                         </div>
-                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">
+                                <label for="name" >Description</label>
+                                <textarea class="form-control" placeholder="Mô tả ..." name="k_description">{{ $keyword->k_description}}</textarea>
+                                    @if ($errors->first('k_description'))
+                                        <span class="text-danger" >{{ $errors->first('k_description')}}</span>
+                                    @endif
+                                
+                                
+                        </div>                        
                         <div class="col-sm-12">
                             <div class="box-footer text-center">
-                                <a href="{{route('admin.category.index')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Quay lại</a>
+                                <a href="{{route('admin.keyword.index')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Quay lại</a>
                                 <button type="submit" class="btn btn-success">Lưu dữ liệu  <i class="fa fa-save"></i></button>
                             </div>
                         </div>

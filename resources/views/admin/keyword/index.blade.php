@@ -41,9 +41,9 @@
                                     
                                     <td>
                                         @if ($keyword->k_hot == 0)
-                                        <a href="" class="label label-info">Hot</a>
+                                        <a href="{{ route('admin.keyword.hot',$keyword->id)}}" class="label label-info">Hot</a>
                                         @else
-                                        <a href="" class="label label-default">None</a>
+                                        <a href="{{ route('admin.keyword.hot',$keyword->id)}}" class="label label-default">None</a>
                                         @endif
                                     </td>
                                     <td>
