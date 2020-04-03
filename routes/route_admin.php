@@ -41,5 +41,10 @@
         Route::get('delete/{id}','AdminKeywordController@delete')->name('admin.keyword.delete');
 
     });
+    Route::group(['prefix' => 'product'], function(){
+        Route::get('','AdminProductController@index')->name('admin.keyword.index');
+      
+
+    });
 });
 
