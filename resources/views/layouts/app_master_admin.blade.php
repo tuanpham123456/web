@@ -241,6 +241,13 @@
                             </a>
                            
                         </li>
+                        <li class="">
+                            <a href="{{ route('admin.product.index')}}">
+                            <i class="fa fa-database"></i> <span>Product</span>
+                            
+                            </a>
+                           
+                        </li>
                         
                         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
                         <li class="header">LABELS</li>
@@ -466,6 +473,16 @@
                 }
               })
             })
+            $(".js-upload").change(function () {
+                    let $this = $(this);
+                    if (this.files && this.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $this.parents('.block-images').find('img').attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
         </script>
     </body>
 </html>

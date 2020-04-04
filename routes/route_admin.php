@@ -42,9 +42,14 @@
 
     });
     Route::group(['prefix' => 'product'], function(){
-        Route::get('','AdminProductController@index')->name('admin.keyword.index');
-      
+        Route::get('','AdminProductController@index')->name('admin.product.index');
+        Route::get('create','AdminProductController@create')->name('admin.product.create');
+        Route::post('create','AdminProductController@store');
 
+        Route::get('update/{id}','AdminProductController@edit')->name('admin.product.update');
+        Route::post('update/{id}','AdminProductController@update');
+        
+        Route::get('delete/{id}','AdminProductController@delete')->name('admin.product.delete');
     });
 });
 
