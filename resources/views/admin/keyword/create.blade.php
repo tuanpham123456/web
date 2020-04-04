@@ -1,5 +1,5 @@
 @extends('layouts.app_master_admin')
- @section('content')
+@section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>Thêm danh mục sản phẩm</h1>
