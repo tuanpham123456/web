@@ -24,11 +24,11 @@ class AdminRequestProduct extends FormRequest
     public function rules()
     {
         return [
-            'pro_name'          => 'required|max:190|min:3|unique:products,pro_name,'.$this->id,
-            'pro_price'         => 'required',
-            'pro_description'   => 'required',
-            'pro_category_id'   => 'required',
-            'pro_content'       => 'required',
+            // 'pro_name'          => 'required|max:190|min:3|unique:products,pro_name,'.$this->id,
+            // 'pro_price'         => 'required',
+            // 'pro_description'   => 'required',
+            // 'pro_category_id'   => 'required',
+            // 'pro_content'       => 'required',
         ];
     }
 }

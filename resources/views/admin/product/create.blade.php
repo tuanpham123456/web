@@ -31,7 +31,7 @@
                     <div class="col-sm-3 ">
                         <div class="form-group ">
                             <label for="exampleInputEmail1 ">Giá sản phẩm</label>
-                             <input type="text " name="pro_price "  class="form-control " data-type="currency " placeholder="15.000.000 ">
+                             <input type="text " name="pro_price"  class="form-control " data-type="currency " placeholder="15.000.000 ">
                                  @if ($errors->first('pro_price'))
                                     <span class="text-danger">{{ $errors->first('pro_price')}}</span>
                                 @endif
@@ -40,41 +40,37 @@
                     <div class="col-sm-3 ">
                         <div class="form-group ">
                             <label for="exampleInputEmail1 ">Giảm giá</label>
-                             <input type="number " name=" "  class="form-control " data-type="currency " placeholder="5 ">
+                             <input type="number " name="pro_sale"  class="form-control " data-type="currency " placeholder="5 ">
                         </div>
                     </div>
                     <div class="col-sm-9 ">
                         <div class="form-group ">
                             <label for="tag ">Keyword</label>
-                            <select name="keywords " class="form-control js-select2-keyword " multiple=" ">
+                            <select name="" class="form-control js-select2-keyword" multiple=" ">
                                 <option value=" ">__Click__</option>
-
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="form-group ">
                     <label for="exampleInputEmail1 ">Description</label>
-                    <textarea name="pro_description " class="form-control " cols="5 " rows="2 " autocomplete="off "></textarea>
+                    <textarea name="pro_description" class="form-control " cols="5 " rows="2 " autocomplete="off "></textarea>
                      @if ($errors->first('pro_description'))
                                     <span class="text-danger">{{ $errors->first('pro_description')}}</span>
                      @endif
                 </div>
-
                 <div class="form-group ">
                     <label class="control-label ">Danh mục <b class="col-red ">(*)</b></label>
-                    <select name="pro_category_id " class="form-control ">
-                        <option value=" ">__Click__</option>
+                    <select name="pro_category_id" class="form-control ">
+                        <option value="">__Click__</option>
                         @foreach ($categories as $category )
                             <option value="{{ $category->id}}">{{$category->c_name}}</option>
-
                         @endforeach
                     
                     </select>
                     @if ($errors->first('pro_category_id'))
                             <span class="text-danger">{{ $errors->first('pro_category_id')}}</span>
                     @endif
-
                         </div>
                     </div>
                 </div>
@@ -97,17 +93,13 @@
                         <h3 class="box-title">Album ảnh</h3>
                     </div>
                     <div class="box-body">
-
                         <div class="row" style="margin-bottom: 15px;">
-
                             <div class="col-sm-2">
                                 <a href="" style="display: block;">
                                     <img src="" style="width: 100%;height: auto">
                                 </a>
                             </div>
-
                         </div>
-
                         <div class="form-group">
                             <div class="file-loading">
                                 <input id="images" type="file" name="file[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="0">
@@ -115,7 +107,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="box-body">
+                    {{-- <div class="box-body">
                         <div class="form-group col-sm-3">
                             <label for="exampleInputEmail1">Xuất sứ</label>
                             <select name="pro_country" class="form-control ">
@@ -135,7 +127,7 @@
                             <label for="">Số lượng</label>
                             <input type="number" class="form-control" name="" value="" placeholder="10">
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="box box-warning">
                     <div class="box-header with-border">
@@ -165,15 +157,13 @@
             </div>
             <div class="col-sm-12 clearfix">
                 <div class="box-footer text-center">
-                    <a href="" class="btn btn-default"><i class="fa fa-arrow-left"></i> Cancel</a>
-                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> </button>
+                    <a href="{{ route('admin.product.index')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
+                    <button type="submit" class="btn btn-success">Lưu dữ liệu <i class="fa fa-save"></i></button>
                 </div>
             </div>
-
         </form>
     </div>
 </section>
-
 {{--
 <div class="box-header with-border">
     <h3 class="box-title">Album ảnh</h3>

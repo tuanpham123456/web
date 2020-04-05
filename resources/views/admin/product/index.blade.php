@@ -26,10 +26,41 @@
                                     <th style="width: 10px">#</th>
                                     <th>Name</th>
                                     <th>Avatar</th>
-                                    <th>Info</th>
+                                    <th>Hot</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
+                                 @if (isset($products))
+                                @foreach ($products as $product)
+                                <tr>
+                                    <td>{{ $product->id}}</td>
+                                    <td>{{ $product->pro_name}}</td>
+                                    <td>{{ $product->pro_description}}</td>
+                                    <td>
+                                        @if ($product->pro_hot == 0)
+                                        <a href="{{ $product->id}}" class="label label-info">Hot</a>
+                                        @else
+                                        <a href="{{ $product->id}}" class="label label-default">None</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($product->pro_active == 1)
+                                        <a href="{{ $product->id}}" class="label label-info">Active</a>
+                                        @else
+                                        <a href="{{ $product->id}}" class="label label-default">Hide</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{ $product->created_at}}
+                                    </td>
+                                    <td>
+                                        <a href="{{ $product->id}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a>
+                                        <a href="{{ $product->id}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
+
+                                    </td>
+                                </tr>
+                                @endforeach
+                               @endif
                             </tbody>
                         </table>
 
