@@ -40,5 +40,22 @@ class AdminProductController extends Controller
       
         // dd($data);
     }
+    public function edit($id) 
+    {
+        $categories = Category::all();
+        $product = Product::findOrFail($id);
+        return view('admin.product.update', compact('categories','product'));
+    }
+    
+    public function update(AdminRequestProduct $request, $id)
+    {
+        $product           = Product::find($id);
+        $data               = $request->except('_token');
+        $data['pro_slug']     = Str::slug($request->pro_name);
+        $data['updated_at'] = Carbon::now(); 
+
+        $product->update($data);
+        return redirect()->back();
+    }
 
 }
