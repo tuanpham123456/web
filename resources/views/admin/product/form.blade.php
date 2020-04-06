@@ -127,7 +127,7 @@
                         <div class="form-group ">
                             <label for="exampleInputEmail1">Content</label>
                             <textarea name="pro_content" id="content" class="form-control textarea" 
-                            value="{{ $product->pro_content ?? ""}}" cols="5" rows="2"></textarea>
+                            value="{{ $product->pro_content ?? old('pro_content')}}" cols="5" rows="2"></textarea>
                              @if ($errors->first('pro_content'))
                             <span class="text-danger">{{ $errors->first('pro_content')}}</span>
                              @endif

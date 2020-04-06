@@ -57,5 +57,26 @@ class AdminProductController extends Controller
         $product->update($data);
         return redirect()->back();
     }
+    public function hot($id){
+        $product = Product::find($id);
+
+        $product ->pro_hot = ! $product->pro_hot;
+        $product->save();
+        return redirect()->back();
+
+    }
+    public function active($id){
+        $product = Product::find($id);
+
+        $product ->pro_active = ! $product->pro_active;
+        $product->save();
+        return redirect()->back();
+    }
+    public function delete($id){
+        $product = Product::find($id);
+
+        if ($product) $product->delete();
+        return redirect()->back();
+    }
 
 }

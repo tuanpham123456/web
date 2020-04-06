@@ -28,6 +28,7 @@
                                     <th>Avatar</th>
                                     <th>Hot</th>
                                     <th>Status</th>
+                                    <th>Time</th>
                                     <th>Action</th>
                                 </tr>
                                  @if (isset($products))
@@ -38,16 +39,16 @@
                                     <td>{{ $product->pro_description}}</td>
                                     <td>
                                         @if ($product->pro_hot == 0)
-                                        <a href="{{ $product->id}}" class="label label-info">Hot</a>
+                                        <a href="{{ route('admin.product.hot',$product->id)}}" class="label label-info">Hot</a>
                                         @else
-                                        <a href="{{ $product->id}}" class="label label-default">None</a>
+                                        <a href="{{ route('admin.product.hot',$product->id)}}" class="label label-default">None</a>
                                         @endif
                                     </td>
                                     <td>
                                         @if ($product->pro_active == 1)
-                                        <a href="{{ $product->id}}" class="label label-info">Active</a>
+                                        <a href="{{ route('admin.product.active',$product->id)}}" class="label label-info">Active</a>
                                         @else
-                                        <a href="{{ $product->id}}" class="label label-default">Hide</a>
+                                        <a href="{{ route('admin.product.active',$product->id)}}" class="label label-default">Hide</a>
                                         @endif
                                     </td>
                                     <td>

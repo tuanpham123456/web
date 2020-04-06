@@ -49,6 +49,8 @@
         Route::get('update/{id}','AdminProductController@edit')->name('admin.product.update');
         Route::post('update/{id}','AdminProductController@update');
         Route::get('hot/{id}','AdminProductController@hot')->name('admin.product.hot');
+        Route::get('active/{id}','AdminProductController@active')->name('admin.product.active');
+
 
         Route::get('delete/{id}','AdminProductController@delete')->name('admin.product.delete');
     });
