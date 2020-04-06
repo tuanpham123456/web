@@ -26,6 +26,7 @@
                                     <th style="width: 10px">#</th>
                                     <th>Name</th>
                                     <th>Avatar</th>
+                                    <th>Description</th>
                                     <th>Hot</th>
                                     <th>Status</th>
                                     <th>Time</th>
@@ -36,6 +37,9 @@
                                 <tr>
                                     <td>{{ $product->id}}</td>
                                     <td>{{ $product->pro_name}}</td>
+                                    <td>
+                                        <img src="{{ asset(pare_url_file($product->pro_avatar))}}" style="width:80px;height:80px">
+                                    </td>
                                     <td>{{ $product->pro_description}}</td>
                                     <td>
                                         @if ($product->pro_hot == 0)

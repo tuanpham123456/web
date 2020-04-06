@@ -28,17 +28,21 @@ class AdminProductController extends Controller
         return view('admin.product.create', compact('categories'));
     }
 
-   public function store(AdminRequestProduct $request)
+    public function store(AdminRequestProduct $request)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token','pro_avatar');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['created_at']   = Carbon::now();
+
+        if ($request->pro_avatar) {
+            $image = upload_image('pro_avatar');
+            if ($image['code'] == 1) 
+                $data['pro_avatar'] = $image['name'];
+        } 
 
         $id = Product::insertGetId($data);
 
         return redirect()->back();
-      
-        // dd($data);
     }
     public function edit($id) 
     {
@@ -50,9 +54,15 @@ class AdminProductController extends Controller
     public function update(AdminRequestProduct $request, $id)
     {
         $product           = Product::find($id);
-        $data               = $request->except('_token');
+        $data               = $request->except('_token','pro_avatar');
         $data['pro_slug']     = Str::slug($request->pro_name);
-        $data['updated_at'] = Carbon::now(); 
+        $data['updated_at'] = Carbon::now();
+
+        if ($request->pro_avatar) {
+            $image = upload_image('pro_avatar');
+            if ($image['code'] == 1) 
+                $data['pro_avatar'] = $image['name'];
+        } 
 
         $product->update($data);
         return redirect()->back();

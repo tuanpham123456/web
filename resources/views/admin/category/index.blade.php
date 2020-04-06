@@ -37,7 +37,7 @@
                                     <td>{{ $category->id}}</td>
                                     <td>{{ $category->c_name}}</td>
                                     <td>
-                                        <img src="{{ asset('img/no-image.jpg')}}" style="width:80px;height:80px"></img>
+                                        <img src="{{ asset('image/no-image.jpg')}}" style="width:80px;height:80px"></img>
                                     </td>
                                     <td>
                                         @if ($category->c_status == 1)
