@@ -43,7 +43,7 @@
                 <div class="form-group ">
                     <label for="exampleInputEmail1 ">Description</label>
                     <textarea name="pro_description" class="form-control"
-                     value="{{ $product->pro_description ?? old('pro_description')}}" cols="5 " rows="2 " autocomplete="off "></textarea>
+                      cols="5 " rows="2 " autocomplete="off ">{{ $product->pro_description ?? old('pro_description')}}</textarea>
                      @if ($errors->first('pro_description'))
                         <span class="text-danger">{{ $errors->first('pro_description')}}</span>
                      @endif
@@ -126,8 +126,8 @@
                     <div class="box-body">
                         <div class="form-group ">
                             <label for="exampleInputEmail1">Content</label>
-                            <textarea name="pro_content" value="{{ $product->pro_content ?? old('pro_content')}}" id="content" class="form-control textarea" 
-                             cols="5" rows="2"></textarea>
+                            <textarea name="pro_content"  id="content" class="form-control textarea" 
+                             cols="5" rows="2">{{ $product->pro_content ?? old('pro_content')}}</textarea>
                              @if ($errors->first('pro_content'))
                             <span class="text-danger">{{ $errors->first('pro_content')}}</span>
                              @endif
