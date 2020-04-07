@@ -24,14 +24,14 @@ class AdminRequestCategory extends FormRequest
     public function rules()
     {
         return [
-            'c_name' => 'required|unique:categories,c_name|max:190'.$this->id
+            'c_name' => 'required|max:190|min:3|unique:categories,c_name,'.$this->id
 
         ];
     }
     public function messages(){
         return [
             'c_name.required' => 'Dữ liệu không được để trống',
-            // 'c_name.min'      => 'Nhập phải nhiều hơn 3 ký tự',
+            'c_name.min'      => 'Nhập phải nhiều hơn 3 ký tự',
             'c_name.unique'   => 'Dữ liệu đã tồn tại',
             'c_name.max'      => 'Nhập tối đa 190 ký tự'
         ];
