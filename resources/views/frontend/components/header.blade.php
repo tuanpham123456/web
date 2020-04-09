@@ -3,7 +3,7 @@
         <div class="container header-wrapper">
             <!--Thay đổi-->
             <div class="logo">
-                <a href="/" class="desktop">
+                <a href="{{ route('get.home')}}" class="desktop">
                     <img src="{{ asset('images/icon/Logo.png') }}" alt="Home">
                 </a>
                 <a href="/" class="mobile">
