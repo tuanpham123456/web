@@ -62,75 +62,38 @@
                     <i class="fa fa-bars"></i> Danh mục sản phẩm
                 </a>
                 <ul id="menu">
-                    <li>
-                        <a href="" title="Đồng hồ chính hãng">
-                            Đồng hồ chính hãng
-                            <span class="openSub">
+                        @if (isset($categories))
+                        @foreach ( $categories as $category )                    
+                       <li>
+                            <a href="" title="{{ $category->c_name}}">
+                           {{ $category->c_name}}
+                            {{-- <span class="openSub">
                                 <i class="icon icon-submenu"></i>
-                            </span>
-                        </a>
-                        <div class="submenu">
-                            <div class="parent">
-                                <div class="group">
-                                    <div class="item">
-                                        <a href="/sp/Dong-ho-Philippe-Auguste.html" title="Đồng hồ Philippe Auguste" class="name"><i class="fa fa-caret-right"></i> Đồng hồ Philippe Auguste</a>
-                                        <a href="/sp/Dong-ho-Epos-Swiss.html" title="Đồng hồ Epos Swiss" class="name"><i class="fa fa-caret-right"></i> Đồng hồ Epos Swiss</a>
-                                        <a href="/sp/Dong-ho-Atlantic-Swiss.html" title="Đồng hồ Atlantic Swiss" class="name"><i class="fa fa-caret-right"></i> Đồng hồ Atlantic Swiss</a>
-                                        <a href="/sp/Dong-ho-Diamond-D.html" title="Đồng hồ Diamond D" class="name"><i class="fa fa-caret-right"></i> Đồng hồ Diamond D</a>
-                                        <a href="/sp/Dong-ho-Aries-Gold.html" title="Đồng hồ Aries Gold" class="name"><i class="fa fa-caret-right"></i> Đồng hồ Aries Gold</a>
-                                        <a href="/sp/Dong-ho-Jacques-Lemans.html" title="Đồng hồ Jacques Lemans" class="name"><i class="fa fa-caret-right"></i> Đồng hồ Jacques Lemans</a>
-                                        <a href="/sp/Dong-ho-QQ.html" title="Đồng hồ QQ" class="name"><i class="fa fa-caret-right"></i> Đồng hồ QQ</a>
-                                        <a href="/sp/Jacques-Du-Manoir.html" title="Jacques Du Manoir" class="name"><i class="fa fa-caret-right"></i> Jacques Du Manoir</a>
-                                        <a href="/sp/Bruno-Sohnle-Glashutte.html" title="Bruno Sohnle Glashutte" class="name"><i class="fa fa-caret-right"></i> Bruno Sohnle Glashutte</a>
-                                        <a href="/sp/Dong-ho-Citizen.html" title="Đồng hồ Citizen" class="name"><i class="fa fa-caret-right"></i> Đồng hồ Citizen</a>
-                                        <a href="/sp/Stuhrling-Tourbillon.html" title="Stuhrling Tourbillon" class="name"><i class="fa fa-caret-right"></i> Stuhrling Tourbillon</a>
-                                        <a href="/sp/Stuhrling-Original-Swiss.html" title="Stuhrling Original Swiss" class="name"><i class="fa fa-caret-right"></i> Stuhrling Original Swiss</a>
-                                        <a href="/sp/Tourbillon-Memorigin.html" title="Tourbillon Memorigin" class="name"><i class="fa fa-caret-right"></i> Tourbillon Memorigin</a>
-                                        <a href="/sp/Dong-ho-Casio.html" title="Đồng hồ Casio" class="name"><i class="fa fa-caret-right"></i> Đồng hồ Casio</a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="/sp/dong-ho-epos-swiss.html" title="Đồng hồ Epos Swiss">Đồng hồ Epos Swiss</a></li>
+                            </span> --}}
+                             </a>
+                        
+                        </li>
+                        @endforeach
+                        @endif
+                    
                 </ul>
             </div>
             <div class="menu-right">
                 <div class="left">
                     <ul>
+                        @if (isset($categories))
+                        @foreach ( $categories as $category )                    
                         <li>
-                            <a href="" title="Đồng hồ Thụy Sỹ">
+                            <a href="" title="{{ $category->c_name}}">
 									<span class="name">
-										Đồng hồ
+										{{ $category->c_name}}
 									</span>
                                 <i class="icon icon-clock"></i>
                             </a>
                         </li>
-                        <li>
-                            <a href="/kinh-mat-thoi-trang.html" title="Kính mát thời trang">
-									<span class="name">
-										Kính mắt
-									</span>
-                                <i class="icon icon-glasses"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/phu-kien-dong-ho.html" title="Phụ kiện đồng hồ">
-									<span class="name">
-										Phụ kiện đồng hồ
-									</span>
-                                <i class="icon icon-accessories"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://daugia.tv" title="Đấu giá" target="_blank">
-									<span class="name">
-									   Đấu giá
-									</span>
-                                <i class="icon icon-aution"></i>
-                            </a>
-                        </li>
+                        @endforeach
+                        @endif
+                        
                     </ul>
                 </div>
                 <div class="right">
