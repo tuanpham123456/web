@@ -11,6 +11,9 @@
     @include('frontend.components.header')
     @yield('content')
     @include('frontend.components.footer')
+    <script>
+        var DEVICE = '{{ device_agent()}}'
+    </script>
     @yield('script')
 
 </body>
