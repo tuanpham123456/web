@@ -1,11 +1,22 @@
+@if (isset($product))
 <div class="product-item">
-    <a href="{{ route('get.product.detail','slug')}}" title="" class="avatar image contain">
-        <img alt="" src="{{ url('images/banner/dongho.jpg') }}" class="lazyload">
+    <a href="{{ route('get.product.detail', $product->pro_slug . '-' .$product->id)}}" title="" class="avatar image contain">
+        <img alt="" src="{{  asset(pare_url_file($product->pro_avatar)) }}" class="lazyload">
     </a>
     <a href="{{ route('get.product.detail','slug')}}" title="" class="title">
-        <h3>Đồng hồ Diamond D DD6014B</h3>
+        <h3>{{ $product->pro_name}}</h3>
     </a>
-    <p class="percent">-10%</p>
-    <p class="price">6.363.900 đ</p>
-    <p class="price-sale">7.071.000 đ</p>
+    @if ($product->pro_sale)
+            <p class="percent">-{{ $product->pro_sale}}%</p>
+                <p class="price-sale">{{number_format($product->pro_price,0,',','.')}} đ</p>
+                @php
+                    $price = (( 100 -$product->pro_sale) * $product->pro_price) /100 ;
+                @endphp
+            <p class="price-sale">{{ number_format($price,0,',','.')}} đ</p>
+
+    @else
+            <p class="price">{{ number_format($product->pro_price,0,',','.')}} đ</p>
+
+    @endif
 </div>
+@endif

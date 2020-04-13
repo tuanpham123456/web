@@ -68,11 +68,13 @@
                     </div>
                 </div>
                 <div class="right">
-                    @for($i=0; $i < 4; $i++)
+                    @if (isset($productsNew))
+                        @foreach ($productsNew as $product )
                         <div class="item">
-                            @include('frontend.components.product_item')
+                            @include('frontend.components.product_item',['product' => $product])
                         </div>
-                    @endfor
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
