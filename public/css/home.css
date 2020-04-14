@@ -14,7 +14,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, footer, header, hgroup,z
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -1102,9 +1102,9 @@ button {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: url("../../fonts/roboto-v20-latin_vietnamese-300.eot");
+  src: url("../fonts/roboto-v20-latin_vietnamese-300.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto Light"), local("Roboto-Light"), url("../../fonts/roboto-v20-latin_vietnamese-300.eot?#iefix") format("embedded-opentype"), url("../../fonts/roboto-v20-latin_vietnamese-300.woff2") format("woff2"), url("../../fonts/roboto-v20-latin_vietnamese-300.woff") format("woff"), url("../../fonts/roboto-v20-latin_vietnamese-300.ttf") format("truetype"), url("../../fonts/roboto-v20-latin_vietnamese-300.svg#Roboto") format("svg");
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-v20-latin_vietnamese-300.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v20-latin_vietnamese-300.woff2") format("woff2"), url("../fonts/roboto-v20-latin_vietnamese-300.woff") format("woff"), url("../fonts/roboto-v20-latin_vietnamese-300.ttf") format("truetype"), url("../fonts/roboto-v20-latin_vietnamese-300.svg#Roboto") format("svg");
   /* Legacy iOS */
 }
 
@@ -1113,9 +1113,9 @@ button {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 300;
-  src: url("../../fonts/roboto-v20-latin_vietnamese-300italic.eot");
+  src: url("../fonts/roboto-v20-latin_vietnamese-300italic.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto Light Italic"), local("Roboto-LightItalic"), url("../../fonts/roboto-v20-latin_vietnamese-300italic.eot?#iefix") format("embedded-opentype"), url("../../fonts/roboto-v20-latin_vietnamese-300italic.woff2") format("woff2"), url("../../fonts/roboto-v20-latin_vietnamese-300italic.woff") format("woff"), url("../../fonts/roboto-v20-latin_vietnamese-300italic.ttf") format("truetype"), url("../../fonts/roboto-v20-latin_vietnamese-300italic.svg#Roboto") format("svg");
+  src: local("Roboto Light Italic"), local("Roboto-LightItalic"), url("../fonts/roboto-v20-latin_vietnamese-300italic.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v20-latin_vietnamese-300italic.woff2") format("woff2"), url("../fonts/roboto-v20-latin_vietnamese-300italic.woff") format("woff"), url("../fonts/roboto-v20-latin_vietnamese-300italic.ttf") format("truetype"), url("../fonts/roboto-v20-latin_vietnamese-300italic.svg#Roboto") format("svg");
   /* Legacy iOS */
 }
 
@@ -1124,9 +1124,9 @@ button {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url("../../fonts/roboto-v20-latin_vietnamese-regular.eot");
+  src: url("../fonts/roboto-v20-latin_vietnamese-regular.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto"), local("Roboto-Regular"), url("../../fonts/roboto-v20-latin_vietnamese-regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/roboto-v20-latin_vietnamese-regular.woff2") format("woff2"), url("../../fonts/roboto-v20-latin_vietnamese-regular.woff") format("woff"), url("../../fonts/roboto-v20-latin_vietnamese-regular.ttf") format("truetype"), url("../../fonts/roboto-v20-latin_vietnamese-regular.svg#Roboto") format("svg");
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-v20-latin_vietnamese-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v20-latin_vietnamese-regular.woff2") format("woff2"), url("../fonts/roboto-v20-latin_vietnamese-regular.woff") format("woff"), url("../fonts/roboto-v20-latin_vietnamese-regular.ttf") format("truetype"), url("../fonts/roboto-v20-latin_vietnamese-regular.svg#Roboto") format("svg");
   /* Legacy iOS */
 }
 
@@ -1135,9 +1135,9 @@ button {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
-  src: url("../../fonts/roboto-v20-latin_vietnamese-italic.eot");
+  src: url("../fonts/roboto-v20-latin_vietnamese-italic.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto Italic"), local("Roboto-Italic"), url("../../fonts/roboto-v20-latin_vietnamese-italic.eot?#iefix") format("embedded-opentype"), url("../../fonts/roboto-v20-latin_vietnamese-italic.woff2") format("woff2"), url("../../fonts/roboto-v20-latin_vietnamese-italic.woff") format("woff"), url("../../fonts/roboto-v20-latin_vietnamese-italic.ttf") format("truetype"), url("../../fonts/roboto-v20-latin_vietnamese-italic.svg#Roboto") format("svg");
+  src: local("Roboto Italic"), local("Roboto-Italic"), url("../fonts/roboto-v20-latin_vietnamese-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v20-latin_vietnamese-italic.woff2") format("woff2"), url("../fonts/roboto-v20-latin_vietnamese-italic.woff") format("woff"), url("../fonts/roboto-v20-latin_vietnamese-italic.ttf") format("truetype"), url("../fonts/roboto-v20-latin_vietnamese-italic.svg#Roboto") format("svg");
   /* Legacy iOS */
 }
 
@@ -1146,9 +1146,9 @@ button {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: url("../../fonts/roboto-v20-latin_vietnamese-500.eot");
+  src: url("../fonts/roboto-v20-latin_vietnamese-500.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../../fonts/roboto-v20-latin_vietnamese-500.eot?#iefix") format("embedded-opentype"), url("../../fonts/roboto-v20-latin_vietnamese-500.woff2") format("woff2"), url("../../fonts/roboto-v20-latin_vietnamese-500.woff") format("woff"), url("../../fonts/roboto-v20-latin_vietnamese-500.ttf") format("truetype"), url("../../fonts/roboto-v20-latin_vietnamese-500.svg#Roboto") format("svg");
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-v20-latin_vietnamese-500.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v20-latin_vietnamese-500.woff2") format("woff2"), url("../fonts/roboto-v20-latin_vietnamese-500.woff") format("woff"), url("../fonts/roboto-v20-latin_vietnamese-500.ttf") format("truetype"), url("../fonts/roboto-v20-latin_vietnamese-500.svg#Roboto") format("svg");
   /* Legacy iOS */
 }
 
@@ -1157,9 +1157,9 @@ button {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 500;
-  src: url("../../fonts/roboto-v20-latin_vietnamese-500italic.eot");
+  src: url("../fonts/roboto-v20-latin_vietnamese-500italic.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto Medium Italic"), local("Roboto-MediumItalic"), url("../../fonts/roboto-v20-latin_vietnamese-500italic.eot?#iefix") format("embedded-opentype"), url("../../fonts/roboto-v20-latin_vietnamese-500italic.woff2") format("woff2"), url("../../fonts/roboto-v20-latin_vietnamese-500italic.woff") format("woff"), url("../../fonts/roboto-v20-latin_vietnamese-500italic.ttf") format("truetype"), url("../../fonts/roboto-v20-latin_vietnamese-500italic.svg#Roboto") format("svg");
+  src: local("Roboto Medium Italic"), local("Roboto-MediumItalic"), url("../fonts/roboto-v20-latin_vietnamese-500italic.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v20-latin_vietnamese-500italic.woff2") format("woff2"), url("../fonts/roboto-v20-latin_vietnamese-500italic.woff") format("woff"), url("../fonts/roboto-v20-latin_vietnamese-500italic.ttf") format("truetype"), url("../fonts/roboto-v20-latin_vietnamese-500italic.svg#Roboto") format("svg");
   /* Legacy iOS */
 }
 
@@ -1168,9 +1168,9 @@ button {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: url("../../fonts/roboto-v20-latin_vietnamese-700.eot");
+  src: url("../fonts/roboto-v20-latin_vietnamese-700.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../../fonts/roboto-v20-latin_vietnamese-700.eot?#iefix") format("embedded-opentype"), url("../../fonts/roboto-v20-latin_vietnamese-700.woff2") format("woff2"), url("../../fonts/roboto-v20-latin_vietnamese-700.woff") format("woff"), url("../../fonts/roboto-v20-latin_vietnamese-700.ttf") format("truetype"), url("../../fonts/roboto-v20-latin_vietnamese-700.svg#Roboto") format("svg");
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-v20-latin_vietnamese-700.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v20-latin_vietnamese-700.woff2") format("woff2"), url("../fonts/roboto-v20-latin_vietnamese-700.woff") format("woff"), url("../fonts/roboto-v20-latin_vietnamese-700.ttf") format("truetype"), url("../fonts/roboto-v20-latin_vietnamese-700.svg#Roboto") format("svg");
   /* Legacy iOS */
 }
 
@@ -1179,9 +1179,9 @@ button {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 700;
-  src: url("../../fonts/roboto-v20-latin_vietnamese-700italic.eot");
+  src: url("../fonts/roboto-v20-latin_vietnamese-700italic.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"), url("../../fonts/roboto-v20-latin_vietnamese-700italic.eot?#iefix") format("embedded-opentype"), url("../../fonts/roboto-v20-latin_vietnamese-700italic.woff2") format("woff2"), url("../../fonts/roboto-v20-latin_vietnamese-700italic.woff") format("woff"), url("../../fonts/roboto-v20-latin_vietnamese-700italic.ttf") format("truetype"), url("../../fonts/roboto-v20-latin_vietnamese-700italic.svg#Roboto") format("svg");
+  src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"), url("../fonts/roboto-v20-latin_vietnamese-700italic.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v20-latin_vietnamese-700italic.woff2") format("woff2"), url("../fonts/roboto-v20-latin_vietnamese-700italic.woff") format("woff"), url("../fonts/roboto-v20-latin_vietnamese-700italic.ttf") format("truetype"), url("../fonts/roboto-v20-latin_vietnamese-700italic.svg#Roboto") format("svg");
   /* Legacy iOS */
 }
 
@@ -1337,49 +1337,49 @@ p {
 }
 
 .icon-cart {
-  background: url(/view/Css/icon/ico1.png) center no-repeat;
+  background: url("../icon/ico1.png") center no-repeat;
 }
 
 .icon-phone {
-  background: url(/view/Css/icon/ico2.png) center no-repeat;
+  background: url("../icon/ico2.png") center no-repeat;
 }
 
 .icon-showroom {
-  background: url(/view/Css/icon/ico3.png) center no-repeat;
+  background: url("../icon/ico3.png") center no-repeat;
 }
 
 .icon-clock {
-  background: url(/view/Css/icon/ico4.png) center no-repeat;
+  background: url("../icon/ico4.png") center no-repeat;
   height: 30px;
   width: 22px;
 }
 
 .icon-glasses {
-  background: url(/view/Css/icon/ico5.png) center no-repeat;
+  background:url("../icon/ico5.png") center no-repeat;
   height: 18px;
   width: 42px;
 }
 
 .icon-aution {
-  background: url(/view/Css/icon/ico6.png) center no-repeat;
+  background: url("../icon/ico6.png") center no-repeat;
   height: 27px;
   width: 27px;
 }
 
 .icon-accessories {
-  background: url(/view/Css/icon/ico7.png) center no-repeat;
+  background: url("../icon/ico7.png") center no-repeat;
   height: 24px;
   width: 16px;
 }
 
 .icon-installment {
-  background: url(/view/Css/icon/ico8.png) center no-repeat;
+  background: url("../icon/ico8.png") center no-repeat;
   height: 27px;
   width: 27px;
 }
 
 .icon-news {
-  background: url(/view/Css/icon/ico9.png) center no-repeat;
+  background: url("../icon/ico9.png") center no-repeat;
   height: 22px;
   width: 16px;
 }
@@ -5178,7 +5178,7 @@ p {
 }
 
 #headers {
-  background: url("images/icon/bg2.png") top center repeat-x;
+  background: url("../icon/bg2.png") top center repeat-x;
   padding: 9px 0;
 }
 
@@ -5431,7 +5431,7 @@ p {
 }
 
 #menu-main .menu-left #menu li a .openSub .icon-submenu {
-  background: url(/view/Css/icon/ico12.png) center no-repeat;
+  background: url("../icon/ico12.png") center no-repeat;
   display: block;
   height: 17px;
   width: 14px;
@@ -6213,7 +6213,7 @@ p {
 }
 
 .product-item .percent {
-  background: url(/view/Css/icon/bg1.png) top center no-repeat;
+  background: url("../icon/bg1.png") top center no-repeat;
   background-size: 100%;
   color: #fff;
   font-size: 16px;

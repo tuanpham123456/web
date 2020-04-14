@@ -67,9 +67,9 @@
                        <li>
                             <a href="" title="{{ $category->c_name}}">
                            {{ $category->c_name}}
-                            {{-- <span class="openSub">
+                            <span class="openSub">
                                 <i class="icon icon-submenu"></i>
-                            </span> --}}
+                            </span>
                              </a>
                         
                         </li>
