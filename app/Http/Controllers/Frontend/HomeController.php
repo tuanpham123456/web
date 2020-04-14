@@ -11,7 +11,7 @@ class HomeController extends FrontendController
         ])
         ->orderByDesc('id')
         ->limit(4)
-        ->select('id','pro_name','pro_slug','pro_avatar','pro_price')
+        ->select('id','pro_name','pro_slug','pro_avatar','pro_price','pro_sale')
         ->get();
 
         $productsHot = Product::where([
@@ -20,7 +20,7 @@ class HomeController extends FrontendController
         ])
         ->orderByDesc('id')
         ->limit(4)
-        ->select('id','pro_name','pro_slug','pro_avatar','pro_price')
+        ->select('id','pro_name','pro_slug','pro_avatar','pro_price','pro_sale')
         ->get();
         $viewData =[
             'productsNew' => $productsNew,

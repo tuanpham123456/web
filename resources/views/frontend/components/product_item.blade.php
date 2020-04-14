@@ -7,13 +7,14 @@
         <h3>{{ $product->pro_name}}</h3>
     </a>
     @if ($product->pro_sale)
-            <p class="percent">-{{ $product->pro_sale}}%</p>
-                <p class="price-sale">{{number_format($product->pro_price,0,',','.')}} đ</p>
-                @php
-                    $price = (( 100 -$product->pro_sale) * $product->pro_price) /100 ;
+           
+                <p><span class="percent">-{{ $product->pro_sale }}%</span></p>
+                @php 
+                    $price = ((100 - $product->pro_sale) * $product->pro_price)  /  100 ;
                 @endphp
-            <p class="price-sale">{{ number_format($price,0,',','.')}} đ</p>
-
+                <span class="price">{{  number_format($price,0,',','.') }} đ</span>
+                <span class="price-sale">{{ number_format($product->pro_price,0,',','.') }} đ</span>
+            
     @else
             <p class="price">{{ number_format($product->pro_price,0,',','.')}} đ</p>
 

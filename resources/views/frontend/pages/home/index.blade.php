@@ -90,7 +90,7 @@
                             @include('frontend.components.product_item')
                         </div>
                         @endforeach
-                @endif
+                @endif  
             </div>
         </div>
 
