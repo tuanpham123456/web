@@ -71,7 +71,7 @@
                     @if (isset($productsNew))
                         @foreach ($productsNew as $product )
                         <div class="item">
-                            @include('frontend.components.product_item',['product' => $product])
+                            @include('frontend.components.product_item')
                         </div>
                         @endforeach
                     @endif
@@ -79,27 +79,21 @@
             </div>
         </div>
 
-        <div class="product-three">
+         <div class="product-three">
             <div class="top">
-                <a href="#" title="" class="main-title">SẢN PHẨM MỚI</a>
+                <a href="#" title="" class="main-title">SẢN PHẨM NỔI BẬT</a>
             </div>
             <div class="bot">
-                <div class="left">
-                    <div class="image">
-                        <a href="#" title="" class="" target="_blank">
-                            <img class="lazyload" alt="" src="https://www.dangquangwatch.vn/upload/homeads/686416914_dong-ho-nhap-khau102.jpg" />
-                        </a>
-                    </div>
-                </div>
-                <div class="right">
-                    @for($i=0; $i < 4; $i++)
+                @if (isset($productsHot))
+                        @foreach ($productsHot as $product )
                         <div class="item">
                             @include('frontend.components.product_item')
                         </div>
-                    @endfor
-                </div>
+                        @endforeach
+                @endif
             </div>
         </div>
+
 
         <div class="product-two">
             <div class="top">

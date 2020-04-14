@@ -5178,7 +5178,7 @@ p {
 }
 
 #headers {
-  background: url(/images/icon/bg2.png) top center repeat-x;
+  background: url("images/icon/bg2.png") top center repeat-x;
   padding: 9px 0;
 }
 
