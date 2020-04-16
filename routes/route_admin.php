@@ -41,6 +41,20 @@
         Route::get('delete/{id}','AdminKeywordController@delete')->name('admin.keyword.delete');
 
     });
+    // route thuộc tính
+    Route::group(['prefix' => 'attribute'], function(){
+        Route::get('','AdminAttributeController@index')->name('admin.attribute.index');
+        Route::get('create','AdminAttributeController@create')->name('admin.attribute.create');
+        Route::post('create','AdminAttributeController@store');
+
+        Route::get('update/{id}','AdminAttributeController@edit')->name('admin.attribute.update');
+        Route::post('update/{id}','AdminAttributeController@update');
+        Route::get('hot/{id}','AdminAttributeController@hot')->name('admin.attribute.hot');
+        
+        Route::get('delete/{id}','AdminAttributeController@delete')->name('admin.attribute.delete');
+
+    });
+    // 
     Route::group(['prefix' => 'product'], function(){
         Route::get('','AdminProductController@index')->name('admin.product.index');
         Route::get('create','AdminProductController@create')->name('admin.product.create');

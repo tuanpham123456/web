@@ -2,10 +2,10 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Quản lý từ khóa</h1>
+        <h1>Quản lý thuộc tính</h1>
         <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="{{  route('admin.keyword.index') }}"> Keyword</a></li>
+            <li><a href="{{  route('admin.keyword.index') }}"> Attribute</a></li>
             <li class="active"> List</a>
             </li>
         </ol>
@@ -30,7 +30,7 @@
                                     <th>Time</th>
                                     <th>Action</th>
                                 </tr>
-                                @if ($keywords)
+                                {{-- @if ($keywords)
                                 @foreach ($keywords as $keyword)
                                 <tr>
                                     <td>{{ $keyword->id}}</td>
@@ -56,15 +56,14 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                               @endif
+                               @endif --}}
                             </tbody>
                         </table>
 
                     </div>
 
                     <div class="box-footer">
-                        {!! $keywords->links() !!}
-
+                        {{-- {!! $categories->links() !!} --}}
                     </div>
 
                 </div>

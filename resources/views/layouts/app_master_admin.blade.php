@@ -242,6 +242,13 @@
                            
                         </li>
                         <li class="">
+                            <a href="{{ route('admin.attribute.index')}}">
+                            <i class="fa fa-key"></i> <span>Attribute</span>
+                            
+                            </a>
+                           
+                        </li>
+                        <li class="">
                             <a href="{{ route('admin.product.index')}}">
                             <i class="fa fa-database"></i> <span>Product</span>
                             
