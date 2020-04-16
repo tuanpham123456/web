@@ -5,7 +5,7 @@
         <h1>Quản lý thuộc tính</h1>
         <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="{{  route('admin.keyword.index') }}"> Attribute</a></li>
+            <li><a href="{{  route('admin.attribute.index') }}"> Attribute</a></li>
             <li class="active"> List</a>
             </li>
         </ol>
@@ -16,7 +16,7 @@
         <div class="box">
             <div class="box-header with-border">
                 <div class="box-header">
-                    <h3 class="box-title"><a href="{{route('admin.keyword.create')}}" class="btn btn-primary">Thêm mới <i class="fa fa-plus"></i></a></h3>
+                    <h3 class="box-title"><a href="{{route('admin.attribute.create')}}" class="btn btn-primary">Thêm mới <i class="fa fa-plus"></i></a></h3>
                 </div>
                 <div class="box-body">
                     <div class="col-md-12">
