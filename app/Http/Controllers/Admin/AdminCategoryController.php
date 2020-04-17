@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Requests\AdminRequestCategory;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
+    use Illuminate\Support\Str;
+    use Carbon\Carbon;
 // build model category vào
 use App\Models\Category;
+use App\Models\Attribute;
 
 use Illuminate\Http\Request;
 

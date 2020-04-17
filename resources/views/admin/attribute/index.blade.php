@@ -25,38 +25,29 @@
                                 <tr>
                                     <th style="width: 10px">#</th>
                                     <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Hot</th>
+                                    <th>Type</th>
+                                    <th>Category</th>
                                     <th>Time</th>
                                     <th>Action</th>
                                 </tr>
-                                {{-- @if ($keywords)
-                                @foreach ($keywords as $keyword)
+                                @if ($attributes)
+                                @foreach ($attributes as $attribute)
                                 <tr>
-                                    <td>{{ $keyword->id}}</td>
-                                    <td>{{ $keyword->k_name}}</td>
-                                    <td>{{ $keyword->k_description}}</td>
-
-                                   
-                                    
+                                    <td>{{ $attribute->id}}</td>
+                                    <td>{{ $attribute->atb_name}}</td>
+                                    <td>{{ $attribute->atb_type}}</td>
+                                    <td>{{ $attribute->atb_category_id}}</td>
                                     <td>
-                                        @if ($keyword->k_hot == 0)
-                                        <a href="{{ route('admin.keyword.hot',$keyword->id)}}" class="label label-info">Hot</a>
-                                        @else
-                                        <a href="{{ route('admin.keyword.hot',$keyword->id)}}" class="label label-default">None</a>
-                                        @endif
+                                        {{ $attribute->created_at}}
                                     </td>
                                     <td>
-                                        {{ $keyword->created_at}}
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('admin.keyword.update',$keyword->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a>
-                                        <a href="{{ route('admin.keyword.delete',$keyword->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
+                                        <a href="{{ route('admin.attribute.update',$attribute->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a>
+                                        <a href="{{ route('admin.attribute.delete',$attribute->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
 
                                     </td>
                                 </tr>
                                 @endforeach
-                               @endif --}}
+                               @endif
                             </tbody>
                         </table>
 

@@ -18,7 +18,7 @@ class CreateAttributesTable extends Migration
             $table->string('atb_name')->unique();
             $table->string('atb_slug');
             $table->tinyInteger('atb_type')->default(0);
-            $table->integer('abt_category_id')->index()->default(0);
+            $table->integer('atb_category_id')->index()->default(0);
             $table->timestamps();
         });
     }
