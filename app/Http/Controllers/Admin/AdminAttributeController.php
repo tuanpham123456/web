@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class AdminAttributeController extends Controller
 {
     public function index(){
-        $attributes = Attribute::orderByDesc('id')
+        $attributes = Attribute::with('category:id,c_name')->orderByDesc('id')
         ->get();
         
         $viewData = [

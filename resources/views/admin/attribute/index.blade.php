@@ -35,8 +35,17 @@
                                 <tr>
                                     <td>{{ $attribute->id}}</td>
                                     <td>{{ $attribute->atb_name}}</td>
-                                    <td>{{ $attribute->atb_type}}</td>
-                                    <td>{{ $attribute->atb_category_id}}</td>
+                                    <td>
+                                        <span class="{{ $attribute->getType($attribute->atb_type)['class']}}">
+                                            {{ $attribute->getType($attribute->atb_type)['name']}}
+
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="label label-info">
+                                            {{ $attribute->Category->c_name ?? "[N/A]"}}
+                                        </span>
+                                    </td>
                                     <td>
                                         {{ $attribute->created_at}}
                                     </td>
