@@ -37,4 +37,26 @@ class AdminAttributeController extends Controller
         // 
         return redirect()->back();
     }
+    public function edit($id){
+        $attribute = Attribute::find($id);
+        //lấy danh sách category
+        $categories = Category::select('id','c_name')->get();
+
+        return view('admin.attribute.update',compact('attribute','categories'));
+    }
+
+    public function update(AdminRequestAttribute $request, $id)
+    {
+         //lấy danh sách category
+        $attribute          = Attribute::find($id);
+        $data               = $request->except('_token');
+        $data['atb_slug']     = Str::slug($request->atb_name);
+        $data['updated_at'] = Carbon::now(); 
+        
+        $attribute->update($data);
+
+        return redirect()->back();
+    }
+
 }
+
