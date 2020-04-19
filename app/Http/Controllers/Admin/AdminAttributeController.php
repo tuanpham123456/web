@@ -57,6 +57,12 @@ class AdminAttributeController extends Controller
 
         return redirect()->back();
     }
+    public function delete($id){
+        $attribute = Attribute::find($id);
+
+        if($attribute) $attribute->delete();
+        return redirect()->back();
+    }
 
 }
 
