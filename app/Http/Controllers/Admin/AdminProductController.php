@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequestProduct;
 use App\Models\Category;
 use App\Models\Product;
-
+use App\Models\Attribute;
 
 class AdminProductController extends Controller
 {
@@ -24,8 +24,10 @@ class AdminProductController extends Controller
     {   
       
         $categories = Category::all();
+            $attributes = Attribute::orderByDesc('atb_type')
+            ->get();
 
-        return view('admin.product.create', compact('categories'));
+        return view('admin.product.create', compact('categories','attributes'));
     }
 
     public function store(AdminRequestProduct $request)
@@ -47,8 +49,10 @@ class AdminProductController extends Controller
     public function edit($id) 
     {
         $categories = Category::all();
+        $attributes = Attribute::orderByDesc('atb_type')
+        ->get();
         $product = Product::findOrFail($id);
-        return view('admin.product.update', compact('categories','product'));
+        return view('admin.product.update', compact('categories','product','attributes'));
     }
     
     public function update(AdminRequestProduct $request, $id)

@@ -65,60 +65,66 @@
                     </div>
                 </div>
                 <div class="box box-warning">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Thuộc tính</h3>
+            <div class="box-header with-border">
+                <h3 class="box-title">Thuộc tính</h3>
+            </div>
+            <div class="box-body">
+                @foreach($attributes as  $attribute)
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="attribute[]" > {{ $attribute->atb_name}}
+                        </label>
                     </div>
-                    <div class="box-body">
-                        <div class="form-group col-sm-3">
-                            <h4 style="border-bottom: 1px solid #dedede;padding-bottom: 10px;"></h4>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="attribute[]" value="">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Album ảnh</h3>
-                    </div>
-                    <div class="box-body">
-                        <div class="row" style="margin-bottom: 15px;">
+                @endforeach
+            </div>
+            <hr>
+            <div class="box-header with-border">
+                <h3 class="box-title">Album ảnh</h3>
+            </div>
+            <div class="box-body">
+                @if (isset($images))
+                    <div class="row" style="margin-bottom: 15px;">
+                        @foreach($images as $item)
                             <div class="col-sm-2">
-                                <a href="" style="display: block;">
-                                    <img value="" style="width: 100%;height: auto">
+                                <a href="{{ route('admin.product.delete_image', $item->id) }}" style="display: block;">
+                                    <img src="{{ pare_url_file($item->pi_slug) }}" style="width: 100%;height: auto">
                                 </a>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="file-loading">
-                                <input id="images" type="file" name="file[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="0">
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <hr>
-                    {{-- <div class="box-body">
-                        <div class="form-group col-sm-3">
-                            <label for="exampleInputEmail1">Xuất sứ</label>
-                            <select name="pro_country" class="form-control ">
-                                <option value="0">__Click__</option>
-                               
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label>Năng lượng</label>
-                            <input type="text" class="form-control" name="" value=" " placeholder="Năng lượng">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="">Độ chịu nước</label>
-                            <input type="text" class="form-control" name="" value="" placeholder="Độ chịu nước">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="">Số lượng</label>
-                            <input type="number" class="form-control" name="" value="" placeholder="10">
-                        </div>
-                    </div> --}}
+                @endif
+                 <div class="form-group">
+                    <div class="file-loading">
+                        <input id="images" type="file" name="file[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="0">
+                    </div>
                 </div>
+            </div>
+            <hr>
+            <div class="box-body">
+                <div class="form-group col-sm-3">
+                    <label for="exampleInputEmail1">Xuất sứ</label>
+                    <select name="pro_country" class="form-control ">
+                        <option value="0">__Click__</option>
+                        <option value="1" {{ ($product->pro_country ?? '' ) == 1 ? "selected='selected'" : "" }}>Việt nam</option>
+                        <option value="2" {{ ($product->pro_country ?? '' ) == 2 ? "selected='selected'" : "" }}>Anh</option>
+                        <option value="3" {{ ($product->pro_country ?? '' ) == 3 ? "selected='selected'" : "" }}>Thuỵ Sỹ</option>
+                        <option value="4" {{ ($product->pro_country ?? '' ) == 4 ? "selected='selected'" : "" }}>Mỹ</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label >Năng lượng</label>
+                    <input type="text"  class="form-control" name="pro_energy" value="{{ $product->pro_energy ?? '' }} " placeholder="Năng lượng">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="">Độ chịu nước</label>
+                    <input type="text"  class="form-control" name="pro_resistant" value="{{ $product->pro_resistant ?? '' }}" placeholder="Độ chịu nước">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="">Số lượng</label>
+                    <input type="number"  class="form-control" name="pro_number" value="{{ $product->pro_number ?? old('pro_number',0) }}" placeholder="10">
+                </div>
+            </div>
+        </div>
                 <div class="box box-warning">
                     <div class="box-header with-border">
                         <h3 class="box-title">Nội dung</h3>
