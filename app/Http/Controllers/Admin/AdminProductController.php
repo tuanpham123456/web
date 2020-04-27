@@ -21,56 +21,75 @@ class AdminProductController extends Controller
     }
 
     public function create()
-    {   
-      
-        $categories = Category::all();
-            $attributes = Attribute::orderByDesc('atb_type')
-            ->get();
+    {
 
-        return view('admin.product.create', compact('categories','attributes'));
+        $categories = Category::all();
+        $attributes = Attribute::orderByDesc('atb_type')
+            ->get();
+        $attributeOld  = [];
+        return view('admin.product.create', compact('categories','attributes','attributeOld'));
     }
 
     public function store(AdminRequestProduct $request)
     {
-        $data = $request->except('_token','pro_avatar');
+        $data = $request->except('_token','pro_avatar','attribute');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['created_at']   = Carbon::now();
 
         if ($request->pro_avatar) {
             $image = upload_image('pro_avatar');
-            if ($image['code'] == 1) 
+            if ($image['code'] == 1)
                 $data['pro_avatar'] = $image['name'];
-        } 
+        }
 
         $id = Product::insertGetId($data);
 
+        if ($id) {
+            $this->syncAttribute($request->attribute, $id);
+
+        }
+
         return redirect()->back();
     }
-    public function edit($id) 
+    public function edit($id)
     {
         $categories = Category::all();
         $attributes = Attribute::orderByDesc('atb_type')
         ->get();
         $product = Product::findOrFail($id);
-        return view('admin.product.update', compact('categories','product','attributes'));
+
+        $attributeOld = \DB::table('products_attributes')
+        ->where('pa_product_id',$id)
+        ->pluck('pa_attribute_id')
+        ->toArray();
+
+        if(!$attributeOld) $attributeOld = [];
+        return view('admin.product.update', compact('categories','product','attributes','attributeOld'));
     }
-    
+
     public function update(AdminRequestProduct $request, $id)
     {
         $product           = Product::find($id);
-        $data               = $request->except('_token','pro_avatar');
+        $data               = $request->except('_token','pro_avatar','attribute');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['updated_at'] = Carbon::now();
 
         if ($request->pro_avatar) {
             $image = upload_image('pro_avatar');
-            if ($image['code'] == 1) 
+            if ($image['code'] == 1)
                 $data['pro_avatar'] = $image['name'];
-        } 
+        }
 
-        $product->update($data);
+        $update = $product->update($data);
+        if ($update){
+            $this->syncAttribute($request->attribute, $id);
+
+        }
+
+
         return redirect()->back();
     }
+
     public function hot($id){
         $product = Product::find($id);
 
@@ -92,5 +111,30 @@ class AdminProductController extends Controller
         if ($product) $product->delete();
         return redirect()->back();
     }
+
+    protected function syncAttribute($attributes , $idProduct)
+    {
+        if (!empty($attributes)) {
+            $datas = [];
+            foreach ($attributes as $key => $value) {
+                $datas[] = [
+                    'pa_product_id'   => $idProduct,
+                    'pa_attribute_id' => $value
+                ];
+            }
+            if (!empty($datas)) {
+                \DB::table('products_attributes')->where('pa_product_id', $idProduct)->delete();
+                \DB::table('products_attributes')->insert($datas);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
 
 }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Requests\AdminRequestCategory;
-    use Illuminate\Support\Str;
-    use Carbon\Carbon;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
 // build model category vào
 use App\Models\Category;
 use App\Models\Attribute;
@@ -28,11 +28,11 @@ class AdminCategoryController extends AdminController
         // except lấy tất cả trừ  giá trị 'token' đc thêm
         $data['c_slug']     = Str::slug($request->c_name);
         $data['created_at']  = Carbon::now();
-        
+
         // model category
         $id = Category::InsertGetId($data);
 
-        // 
+        //
         return redirect()->back();
     }
 
@@ -62,7 +62,7 @@ class AdminCategoryController extends AdminController
         $category           = Category::find($id);
         $data               = $request->except('_token');
         $data['c_slug']     = Str::slug($request->c_name);
-        $data['updated_at'] = Carbon::now(); 
+        $data['updated_at'] = Carbon::now();
 
         $category->update($data);
         return redirect()->back();

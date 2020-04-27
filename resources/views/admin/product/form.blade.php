@@ -49,30 +49,29 @@
                      @endif
                 </div>
                 <div class="form-group ">
-                    <label class="control-label ">Danh mục <b class="col-red ">(*)</b></label>
+                    <label class="control-label">Danh mục <b class="col-red">(*)</b></label>
                     <select name="pro_category_id" class="form-control ">
                         <option value="">__Click__</option>
-                        @foreach ($categories as $category )
-                            <option value="{{ $category->id}}"  {{ ($product->pro_category_id ?? 0 == $category->id) ? "selected = 'selected'" : "" }}>
-                            {{$category->c_name}}</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" {{ ($product->pro_category_id ?? 0) == $category->id ? "selected='selected'" : "" }}>
+                                {{  $category->c_name }}
+                            </option>
                         @endforeach
-                    
                     </select>
                     @if ($errors->first('pro_category_id'))
-                            <span class="text-danger">{{ $errors->first('pro_category_id')}}</span>
+                        <span class="text-danger">{{ $errors->first('pro_category_id') }}</span>
                     @endif
-                        </div>
-                    </div>
                 </div>
                 <div class="box box-warning">
-            <div class="box-header with-border">
-                <h3 class="box-title">Thuộc tính</h3>
-            </div>
+
             <div class="box-body">
                 @foreach($attributes as  $attribute)
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="attribute[]" > {{ $attribute->atb_name}}
+                            {{-- in_array check trong mảng có tồn tại hay k --}}
+                        <input type="checkbox" name="attribute[]" {{ in_array($attribute->id , $attributeOld) ? "checked" : ''}}
+                             value="{{ $attribute->id}}" >
+                        {{ $attribute->atb_name}}
                         </label>
                     </div>
                 @endforeach
@@ -100,7 +99,7 @@
                 </div>
             </div>
             <hr>
-            <div class="box-body">
+            {{-- <div class="box-body">
                 <div class="form-group col-sm-3">
                     <label for="exampleInputEmail1">Xuất sứ</label>
                     <select name="pro_country" class="form-control ">
@@ -123,7 +122,7 @@
                     <label for="">Số lượng</label>
                     <input type="number"  class="form-control" name="pro_number" value="{{ $product->pro_number ?? old('pro_number',0) }}" placeholder="10">
                 </div>
-            </div>
+            </div> --}}
         </div>
                 <div class="box box-warning">
                     <div class="box-header with-border">
@@ -132,7 +131,7 @@
                     <div class="box-body">
                         <div class="form-group ">
                             <label for="exampleInputEmail1">Content</label>
-                            <textarea name="pro_content"  id="content" class="form-control textarea" 
+                            <textarea name="pro_content"  id="content" class="form-control textarea"
                              cols="5" rows="2">{{ $product->pro_content ?? old('pro_content')}}</textarea>
                              @if ($errors->first('pro_content'))
                             <span class="text-danger">{{ $errors->first('pro_content')}}</span>

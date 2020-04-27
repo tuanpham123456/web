@@ -20,23 +20,23 @@ class Attribute extends Model
             'name' => "Đôi",
             'class'=> "label label-info"
         ],
-        
+
         2 =>[
             'name' => "Năng lượng",
-            'class'=> "label label-default" 
+            'class'=> "label label-default"
         ],
 
         3 =>[
             'name' => "Loại dây",
             'class'=> "label label-danger"
         ],
-        
+
         4 =>[
-            'name' => "Loại v",
+            'name' => "Loại vỏ",
             'class'=> "label label-success"
-        ] 
+        ]
    ];
-    // dùng array_get để lấy     
+    // dùng array_get để lấy
    public function getType(){
         return Arr::get($this->type,$this->atb_type,"[N/A]");
    }
