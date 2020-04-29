@@ -25,10 +25,12 @@ class AdminProductController extends Controller
     {
 
         $categories = Category::all();
-        $attributes = Attribute::orderByDesc('atb_type')
-            ->get();
+
         $attributeOld  = [];
-        return view('admin.product.create', compact('categories','attributes','attributeOld'));
+
+        $attributes = $this->syncAttributeGroup();
+
+        return view('admin.product.create', compact('categories','attributeOld','attributes'));
     }
 
     public function store(AdminRequestProduct $request)
@@ -55,8 +57,8 @@ class AdminProductController extends Controller
     public function edit($id)
     {
         $categories = Category::all();
-        $attributes = Attribute::orderByDesc('atb_type')
-        ->get();
+        $attributes = $this->syncAttributeGroup();
+
         $product = Product::findOrFail($id);
 
         $attributeOld = \DB::table('products_attributes')
@@ -128,6 +130,19 @@ class AdminProductController extends Controller
                 \DB::table('products_attributes')->insert($datas);
             }
         }
+    }
+
+    public function syncAttributeGroup()
+    {
+        $attributes     = Attribute::get();
+        $groupAttribute = [];
+
+        foreach ($attributes as $key => $attribute) {
+            $key = $attribute->gettype($attribute->atb_type)['name'];
+            $groupAttribute[$key][] = $attribute->toArray();
+        }
+
+        return $groupAttribute;
     }
 
 

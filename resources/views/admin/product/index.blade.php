@@ -58,7 +58,7 @@
 
                                              </td>
                                              <td>
-                                                 @if ($product->pro_hot == 1)
+                                                 @if ($product->pro_hot == 0)
                                                      <a href="{{ route('admin.product.hot', $product->id) }}" class="label label-info">Hot</a>
                                                  @else
                                                      <a href="{{ route('admin.product.hot', $product->id) }}" class="label label-default">None</a>

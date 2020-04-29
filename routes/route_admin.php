@@ -1,6 +1,4 @@
 <?php
-
-
     Route::group(['prefix' => 'api-admin','namespace' =>'Admin'], function(){
             Route::get('/',function(){
                 return view ('admin.index');
@@ -12,7 +10,7 @@
             Route::get('create','AdminCategoryController@create')->name('admin.category.create');
             // sử lý thêm mới
             Route::post('create','AdminCategoryController@store');
-             
+
             // update
             Route::get('update{id}','AdminCategoryController@edit')->name('admin.category.update');
             Route::post('update{id}','AdminCategoryController@update');
@@ -37,7 +35,7 @@
         Route::get('update/{id}','AdminKeywordController@edit')->name('admin.keyword.update');
         Route::post('update/{id}','AdminKeywordController@update');
         Route::get('hot/{id}','AdminKeywordController@hot')->name('admin.keyword.hot');
-        
+
         Route::get('delete/{id}','AdminKeywordController@delete')->name('admin.keyword.delete');
 
     });
@@ -50,11 +48,11 @@
         Route::get('update/{id}','AdminAttributeController@edit')->name('admin.attribute.update');
         Route::post('update/{id}','AdminAttributeController@update');
         Route::get('hot/{id}','AdminAttributeController@hot')->name('admin.attribute.hot');
-        
+
         Route::get('delete/{id}','AdminAttributeController@delete')->name('admin.attribute.delete');
 
     });
-    // 
+    //
     Route::group(['prefix' => 'product'], function(){
         Route::get('','AdminProductController@index')->name('admin.product.index');
         Route::get('create','AdminProductController@create')->name('admin.product.create');

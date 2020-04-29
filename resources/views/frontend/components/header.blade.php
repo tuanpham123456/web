@@ -65,7 +65,7 @@
                         @if (isset($categories))
                         @foreach ( $categories as $category )
                        <li>
-                            <a href="" title="{{ $category->c_name}}">
+                             <a href="{{}}" title="{{ $category->c_name}}">
                            {{ $category->c_name}}
                             <span class="openSub">
                                 <i class="icon icon-submenu"></i>
