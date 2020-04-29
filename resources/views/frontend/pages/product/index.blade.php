@@ -47,9 +47,9 @@
                     </div>
                 </div>
                 <div class="group">
-                    @for($i =0; $i < 9; $i++)
-                        @include('frontend.components.product_item')
-                    @endfor
+                    @foreach ($products as $product)
+                       @include('frontend.components.product_item')
+                    @endforeach
                 </div>
             </div>
         </div>

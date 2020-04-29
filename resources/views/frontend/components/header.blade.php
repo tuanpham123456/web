@@ -58,12 +58,12 @@
     <div id="menu-main">
         <div class="container menu-wrapper">
             <div class="menu-left">
-                <a href="javascript://" title="" class="title">
+                <a href="{{ route('get.product.list')}}" title="" class="title">
                     <i class="fa fa-bars"></i> Danh mục sản phẩm
                 </a>
                 <ul id="menu">
                         @if (isset($categories))
-                        @foreach ( $categories as $category )                    
+                        @foreach ( $categories as $category )
                        <li>
                             <a href="" title="{{ $category->c_name}}">
                            {{ $category->c_name}}
@@ -71,18 +71,18 @@
                                 <i class="icon icon-submenu"></i>
                             </span>
                              </a>
-                        
+
                         </li>
                         @endforeach
                         @endif
-                    
+
                 </ul>
             </div>
             <div class="menu-right">
                 <div class="left">
                     <ul>
                         @if (isset($categories))
-                        @foreach ( $categories as $category )                    
+                        @foreach ( $categories as $category )
                         <li>
                             <a href="" title="{{ $category->c_name}}">
 									<span class="name">
@@ -93,7 +93,7 @@
                         </li>
                         @endforeach
                         @endif
-                        
+
                     </ul>
                 </div>
                 <div class="right">
