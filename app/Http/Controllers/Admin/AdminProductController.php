@@ -12,7 +12,8 @@ use App\Models\Attribute;
 class AdminProductController extends Controller
 {
     public function index(){
-        $products = Product::paginate(10);
+        $products = Product::with('category:id,c_name')
+        ->paginate(10);
 
         $viewData = [
             'products' => $products
