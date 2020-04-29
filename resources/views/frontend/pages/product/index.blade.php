@@ -25,7 +25,7 @@
 
            </ul>
             </div>
-{{-- end breadcrumb --}}
+            {{-- end breadcrumb --}}
                 <div class="filter-tab">
                     <ul>
                         @for($i =0; $i < 5; $i++)

@@ -1,4 +1,4 @@
-@extends('layouts.app_master_admin') 
+@extends('layouts.app_master_admin')
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -42,9 +42,7 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <span class="label label-info">
-                                            {{ $attribute->Category->c_name ?? "[N/A]"}}
-                                        </span>
+                                        <span class="label label-info">{{ $attribute->category->c_name ?? '[N/A]' }}</span>
                                     </td>
                                     <td>
                                         {{ $attribute->created_at}}

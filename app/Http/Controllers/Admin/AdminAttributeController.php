@@ -13,8 +13,8 @@ class AdminAttributeController extends Controller
 {
     public function index(){
         $attributes = Attribute::with('category:id,c_name')->orderByDesc('id')
-        ->get();
-        
+            ->get();
+
         $viewData = [
             'attributes' => $attributes
         ];
@@ -31,10 +31,10 @@ class AdminAttributeController extends Controller
         // except lấy tất cả trừ  giá trị 'token' đc thêm
         $data['atb_slug']     = Str::slug($request->atb_name);
         $data['created_at']  = Carbon::now();
-        
+
         // model category
         $id = Attribute::InsertGetId($data);
-        // 
+        //
         return redirect()->back();
     }
     public function edit($id){
@@ -51,8 +51,8 @@ class AdminAttributeController extends Controller
         $attribute          = Attribute::find($id);
         $data               = $request->except('_token');
         $data['atb_slug']     = Str::slug($request->atb_name);
-        $data['updated_at'] = Carbon::now(); 
-        
+        $data['updated_at'] = Carbon::now();
+
         $attribute->update($data);
 
         return redirect()->back();

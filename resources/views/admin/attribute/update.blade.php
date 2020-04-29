@@ -5,8 +5,8 @@
         <h1>Cập nhật thuộc tính</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="{{  route('admin.attribute.index') }}"> Update</a></li>
-            <li class="active"> Create</a></li>
+            <li><a href="{{  route('admin.attribute.index') }}"> Attribute</a></li>
+            <li class="active"> Update</a></li>
         </ol>
     </section>
     <!-- Main content -->
@@ -20,10 +20,10 @@
                         <div class="col-sm-8">
                             <div class="form-group {{ $errors->first('atb_name') ? 'has-error' : '' }}">
                                 <label for="name">Name <span class="text-danger">(*)</span></label>
-                                <input type="text" class="form-control" name="atb_name" value="{{ $attribute->atb_name}}" placeholder="Name ...">
+                                <input type="text" class="form-control" value="{{  $attribute->atb_name }}" name="atb_name"  placeholder="Name ...">
                                 @if ($errors->first('atb_name'))
                                     <span class="text-danger">{{ $errors->first('atb_name') }}</span>
-                                @endif 
+                                @endif
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -60,7 +60,7 @@
                                 <button type="submit" class="btn btn-success">Cập nhật dữ liệu <i class="fa fa-save"></i></button>
                             </div>
                         </div>
-                    </form>  
+                    </form>
                 </div>
             </div>
             <!-- /.box -->
