@@ -130,7 +130,7 @@
                 </div>
                 <div class="form-group col-sm-3">
                     <label for="">Số lượng</label>
-                    <input type="number"  class="form-control" name="pro_number" value="{{ $product->pro_number ?? old('pro_number',0) }}" placeholder="10">
+                    <input type="number"  class="form-control" name=""  placeholder="10">
                 </div>
             </div>
 
