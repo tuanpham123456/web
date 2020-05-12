@@ -1,6 +1,26 @@
 @extends('layouts.app_master_frontend')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/product_search.min.css') }}">
+    <style type="text/css">
+        .pagination{
+            margin: 10px auto;
+            display:   flex;
+            margin-left: 9px;
+        }
+        .pagination li{
+            padding: 5px;
+            margin: 0 2px;
+            border: 1px solid #dedede;
+        }
+        .pagination li a .pagination li span{
+            line-height: 25px;
+            display: block;
+            text-align: center;
+            width: 25px;
+            height: 25px;
+        }
+
+    </style>
 @stop
 @section('content')
     <div class="container">
@@ -38,8 +58,9 @@
                         @endfor
                     </ul>
                 </div>
+
                 <div class="order-tab">
-                    <span class="total-prod">Tổng số: 2786 sản phẩm Tính năng</span>
+                    <span class="total-prod">Tổng số: {{$products->total()}} sản phẩm Tính năng</span>
                     <div class="sort">
                         <div class="item">
                             <span class="title">Sắp xếp <i class="fa fa-caret-down"></i></span>
@@ -48,8 +69,11 @@
                 </div>
                 <div class="group">
                     @foreach ($products as $product)
-                       @include('frontend.components.product_item')
+                       @include('frontend.components.product_item',['product' => $product])
                     @endforeach
+                </div>
+                <div style="display:block" class="pagination">
+                    {!! $products->appends([])->links() !!}
                 </div>
             </div>
         </div>

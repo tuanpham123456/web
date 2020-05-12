@@ -75,41 +75,33 @@
                             <div class="infomation__group">
 
                                 <div class="item">
-                                    <p class="text1">Xuất xứ:</p>
-                                    <h3 class="text2">Áo</h3>
+                                    <p class="text1">Danh mục</p>
+                                    <h3 class="text2">
+                                        @if ( isset($product->category->c_name))
+                                            <a href="{{route('get.category.list',$product->category->c_slug)}}">{{ $product->category->c_name}}</a>
+                                        @else
+                                        "[N\A]"
+                                        @endif
+
+                                    </h3>
                                 </div>
                                 <div class="item">
-                                    <p class="text1">Kiểu dáng:</p>
-                                    <h2 class="text2">Đồng hồ Nữ</h2>
+                                    <p class="text1">Xuất xứ</p>
+                                    <h3 class="text2">{{$product->getCountry($product->pro_country)}}</h3>
                                 </div>
                                 <div class="item">
-                                    <p class="text1">Năng lượng:</p>
-                                    <h3 class="text2">Quartz/Pin</h3>
+                                    <p class="text1">Năng lượng</p>
+                                    <h2 class="text2">{{ $product->pro_energy}}</h2>
+                                </div>
+                                <div class="item">
+                                    <p class="text1">Độ chịu nước</p>
+                                    <h3 class="text2">{{$product->pro_resistant}}</h3>
                                 </div>
                                 <div class="item">
                                     <p class="text1">Độ chịu nước:</p>
                                     <h3 class="text2">5 ATM</h3>
                                 </div>
-                                <div class="item">
-                                    <p class="text1">Chất liệu mặt:</p>
-                                    <h3 class="text2">Sapphire</h3>
-                                </div>
-                                <div class="item">
-                                    <p class="text1">Đường kính mặt:</p>
-                                    <h3 class="text2">30 mm</h3>
-                                </div>
-                                <div class="item">
-                                    <p class="text1">Độ dầy:</p>
-                                    <h3 class="text2"></h3>
-                                </div>
-                                <div class="item">
-                                    <p class="text1">Chất liệu dây:</p>
-                                    <p class="text2">Stainless Steel</p>
-                                </div>
-                                <div class="item">
-                                    <p class="text1">Size dây:</p>
-                                    <p class="text2"></p>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -142,7 +134,7 @@
 </div>
 </div>
 
-@stop 
+@stop
 @section('script')
 <script src="{{ asset('js/product_detail.js') }}" type="text/javascript"></script>
 @stop

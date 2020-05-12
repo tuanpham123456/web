@@ -8,11 +8,11 @@ use App\Models\Product;
 class ProductDetailController extends FrontendController
 {
     public function getProductDetail(Request $request ,$slug){
-        
+
         $arraySlug = explode('-', $slug);
         $id = array_pop($arraySlug);
         if ($id) {
-            $product = Product::FindOrFail($id);
+            $product = Product::with('category:id,c_name,c_slug')->FindOrFail($id);
             $viewData = [
                 'product' => $product
             ];

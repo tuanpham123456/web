@@ -37,7 +37,7 @@
                         <select name="" class="form-control js-select2-keyword" multiple=" ">
                             <option value=" ">__Click__</option>
                         </select>
-                    </div>
+                    </div>  
                 </div>
             </div>
             <div class="form-group ">
