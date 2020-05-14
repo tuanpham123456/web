@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::group(['namespace' => 'Auth','prefix' => 'account'], function () {
+    Route::get('register', 'RegisterController@getFormRegister')->name('get.register');
+    Route::post('register', 'RegisterController@postFormRegister') ;
+
+    Route::get('login', 'LoginController@getFormLogin')->name('get.login');
+    Route::post('login', 'LoginController@postFormLogin') ;
+
+
+
+});
+
 Route::group(['namespace' => 'Frontend'],function(){
     Route::get('','HomeController@index')->name('get.home');
     Route::get('san-pham','ProductController@index')->name('get.product.list');
@@ -23,3 +34,7 @@ Route::group(['namespace' => 'Frontend'],function(){
     Route::get('san-pham/{slug}','ProductDetailController@getProductDetail')->name('get.product.detail');
 });
 include('route_admin.php');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

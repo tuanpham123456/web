@@ -93,6 +93,12 @@
                         </li>
                         @endforeach
                         @endif
+                        <li>
+                             <a href="{{ route('get.login')}}">Đăng nhập</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('get.register')}}">Đăng ký</a>
+                        </li>
 
                     </ul>
                 </div>
