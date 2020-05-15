@@ -93,12 +93,22 @@
                         </li>
                         @endforeach
                         @endif
-                        <li>
-                             <a href="{{ route('get.login')}}">Đăng nhập</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('get.register')}}">Đăng ký</a>
-                        </li>
+                        @if (Auth::check())
+                            <li>
+                              <a href="">Xin chào {{Auth::user()->name}}</a>
+                            </li>
+                            <li>
+                                <a href="">Đăng xuất</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('get.login')}}">Đăng nhập</a>
+                             </li>
+                             <li>
+                                <a href="{{ route('get.register')}}">Đăng ký</a>
+                            </li>
+                        @endif
+
 
                     </ul>
                 </div>
