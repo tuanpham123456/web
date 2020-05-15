@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RequestLogin;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -40,7 +42,13 @@ class LoginController extends Controller
     public function getFormLogin(){
         return view('auth.login');
     }
-    public function postFormLogin(){
-        
+    public function postFormLogin(RequestLogin $request){
+        // build: search auth laravel 6
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/');
+        }
+        return redirect()->back();
     }
 }

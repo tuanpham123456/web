@@ -30,7 +30,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="phone">Điện thoại <span class="cRed">(*)</span></label>
+                    <label for="phone">Password <span class="cRed">(*)</span></label>
                     <input name="password" id="phone" type="password" placeholder="********" class="form-control">
                     @if ($errors->first('password'))
                         <span class="text-danger">{{ $errors->first('password') }}</span>
@@ -38,8 +38,7 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-purple btn-xs">Đăng nhập</button>
-                    <a href="">Google</a><br>
-                    <a href="">Quên mật khẩu</a>
+
                 </div>
             </form>
         </div>

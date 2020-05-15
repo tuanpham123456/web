@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RequestRegister;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
 class RegisterController extends Controller
 {
     /*
@@ -44,8 +44,13 @@ class RegisterController extends Controller
         return view('auth.register');
 
     }
-    public function postFormRegister(){
-
+    public function postFormRegister(RequestRegister $request){
+        $data               = $request->except('_token');
+        $data['password']   =Hash::make($data['password']);
+        $id =   User::insertGetId($data);
+        if ($id){
+            return redirect()->route('get.login');
+        }
     }
     /**
      * Get a validator for an incoming registration request.
