@@ -23,6 +23,8 @@ Route::group(['namespace' => 'Auth','prefix' => 'account'], function () {
     Route::get('login', 'LoginController@getFormLogin')->name('get.login');
     Route::post('login', 'LoginController@postFormLogin') ;
 
+    Route::get('logout','LoginController@getLogout')->name('get.logout');
+
 
 
 });
@@ -37,4 +39,4 @@ include('route_admin.php');
 
 // Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('get.home');

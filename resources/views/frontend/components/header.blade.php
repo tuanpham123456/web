@@ -98,7 +98,7 @@
                               <a href="">Xin chào {{Auth::user()->name}}</a>
                             </li>
                             <li>
-                                <a href="">Đăng xuất</a>
+                                <a href="{{route('get.logout')}}">Đăng xuất</a>
                             </li>
                         @else
                             <li>
@@ -117,10 +117,7 @@
                         <span class="text">Trả góp 0%</span>
                         <i class="icon icon-installment"></i>
                     </a>
-                    <a href="/tin-tuc-dong-ho.html" title="Tin tức - Sự kiện">
-                        <i class="icon icon-news"></i>
-                        <span class="text">Tin tức</span>
-                    </a>
+                   
                 </div>
             </div>
         </div>
