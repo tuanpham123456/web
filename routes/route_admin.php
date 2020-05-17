@@ -39,7 +39,7 @@
         Route::get('delete/{id}','AdminKeywordController@delete')->name('admin.keyword.delete');
 
     });
-    Route::group(['prefix' => 'user'], function(){
+        Route::group(['prefix' => 'user'], function(){
         Route::get('','AdminUserController@index')->name('admin.user.index');
 
 
@@ -50,7 +50,7 @@
 
     });
     // route thuộc tính
-    Route::group(['prefix' => 'attribute'], function(){
+        Route::group(['prefix' => 'attribute'], function(){
         Route::get('','AdminAttributeController@index')->name('admin.attribute.index');
         Route::get('create','AdminAttributeController@create')->name('admin.attribute.create');
         Route::post('create','AdminAttributeController@store');

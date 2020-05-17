@@ -39,7 +39,7 @@
                                         {{ $user->created_at}}
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a>
+                                        {{-- <a href="" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a> --}}
                                         <a href="{{route('admin.user.delete',$user->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
 
                                     </td>
