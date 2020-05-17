@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestRegister;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -47,6 +48,7 @@ class RegisterController extends Controller
     public function postFormRegister(RequestRegister $request){
         $data               = $request->except('_token');
         $data['password']   =Hash::make($data['password']);
+        $data['created_at'] = Carbon::now();
         $id =   User::insertGetId($data);
         if ($id){
             return redirect()->route('get.login');

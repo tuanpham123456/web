@@ -226,36 +226,42 @@
                                 <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                             </ul>
                         </li>
-                       
+
                         <li class="">
                             <a href="{{ route('admin.category.index')}}">
                             <i class="fa fa-edit"></i> <span>Category</span>
-                            
+
                             </a>
-                           
+
                         </li>
                         <li class="">
                             <a href="{{ route('admin.keyword.index')}}">
                             <i class="fa fa-key"></i> <span>Keyword</span>
-                            
+
                             </a>
-                           
+
                         </li>
                         <li class="">
                             <a href="{{ route('admin.attribute.index')}}">
                             <i class="fa fa-key"></i> <span>Attribute</span>
-                            
+
                             </a>
-                           
+
                         </li>
                         <li class="">
                             <a href="{{ route('admin.product.index')}}">
                             <i class="fa fa-database"></i> <span>Product</span>
-                            
+
                             </a>
-                           
+
                         </li>
-                        
+                        <li class="">
+                            <a href="{{ route('admin.user.index')}}">
+                            <i class="fa fa-user"></i> <span>User</span>
+
+                            </a>
+
+                        </li>
                         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
                         <li class="header">LABELS</li>
                         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
@@ -273,7 +279,7 @@
                 @yield('content')
             </div>
 
-            
+
             <!-- /.content-wrapper -->
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
