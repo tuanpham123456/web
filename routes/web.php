@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\ShoppingCartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +35,17 @@ Route::group(['namespace' => 'Frontend'],function(){
     Route::get('san-pham','ProductController@index')->name('get.product.list');
     Route::get('danh-muc/{slug}','CategoryController@index')->name('get.category.list');
     Route::get('san-pham/{slug}','ProductDetailController@getProductDetail')->name('get.product.detail');
+    //giỏ hàng
+    Route::get('don-hang','ShoppingCartController@index')->name('get.shopping.list');
+    Route::prefix('shopping')->group(function(){
+        Route::get('add/{id}','ShoppingCartController@add')->name('get.shopping.add');
+        Route::get('delete/{id}','ShoppingCartController@delete')->name('get.shopping.delete');
+        Route::get('update/{id}','ShoppingCartController@update')->name('get.shopping.update');
+
+        Route::post('pay','ShoppingCartController@postPay')->name('post.shopping.pay');
+    });
 });
+
 include('route_admin.php');
 
 // Auth::routes();

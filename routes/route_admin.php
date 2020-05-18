@@ -2,7 +2,7 @@
     Route::group(['prefix' => 'api-admin','namespace' =>'Admin'], function(){
             Route::get('/',function(){
                 return view ('admin.index');
-            });
+    });
     // route danh mục sản phẩm
     Route::group(['prefix' => 'category'],function(){
             Route::get('','AdminCategoryController@index')->name('admin.category.index');
@@ -39,15 +39,12 @@
         Route::get('delete/{id}','AdminKeywordController@delete')->name('admin.keyword.delete');
 
     });
-        Route::group(['prefix' => 'user'], function(){
+    Route::group(['prefix' => 'user'], function(){
         Route::get('','AdminUserController@index')->name('admin.user.index');
-
-
         Route::get('update/{id}','AdminUserController@edit')->name('admin.user.update');
         Route::post('update/{id}','AdminUserController@update');
 
         Route::get('delete/{id}','AdminUserController@delete')->name('admin.user.delete');
-
     });
     // route thuộc tính
         Route::group(['prefix' => 'attribute'], function(){
@@ -62,7 +59,7 @@
         Route::get('delete/{id}','AdminAttributeController@delete')->name('admin.attribute.delete');
 
     });
-    //
+
     Route::group(['prefix' => 'product'], function(){
         Route::get('','AdminProductController@index')->name('admin.product.index');
         Route::get('create','AdminProductController@create')->name('admin.product.create');

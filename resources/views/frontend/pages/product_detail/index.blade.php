@@ -61,7 +61,7 @@
 
                         </div>
                         <div class="btn-cart">
-                            <a href="#" title="" onclick="add_cart_detail('17617',0);" class="muangay">
+                            <a href="{{ route('get.shopping.add',$product->id)}}" title="" onclick="add_cart_detail('17617',0);" class="muangay">
                                 <span>Mua ngay</span>
                                 <span>Hotline: 1800.6005</span>
                             </a>

@@ -20,10 +20,10 @@
                 </form>
                 <ul class="right">
                     <li>
-                        <a href="javascript://" title="Giỏ hàng">
+                        <a href="{{ route('get.shopping.list')}}" title="Giỏ hàng">
                             <i class="icon icon-cart"></i>
                             <span class="text">
-                                <span class="">Giỏ hàng (0)</span>
+                                <span class="">Giỏ hàng ({{ Cart::count()}})</span>
                                 <span></span>
 	                        </span>
                         </a>
@@ -117,7 +117,7 @@
                         <span class="text">Trả góp 0%</span>
                         <i class="icon icon-installment"></i>
                     </a>
-                   
+
                 </div>
             </div>
         </div>
