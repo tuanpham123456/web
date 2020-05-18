@@ -29,7 +29,7 @@ if (!function_exists('upload_image'))
             // Tên file mới
             $nameFile = trim(str_replace('.'.$ext,'',strtolower($info->getFilename())));
             $filename = date('Y-m-d__').\Illuminate\Support\Str::slug($nameFile) . '.' . $ext;;
-            
+
             // thu muc goc de upload
             $path = public_path().'/uploads/'.date('Y/m/d/');
             if ($folder)
@@ -59,7 +59,7 @@ if (!function_exists('upload_image'))
                 return '/images/no-image.jpg';
             }
             $explode = explode('__', $image);
-    
+
             if (isset($explode[0])) {
                 $time = str_replace('_', '/', $explode[0]);
                 return '/uploads'.$folder.'/' . date('Y/m/d', strtotime($time)) . '/' . $image;
@@ -71,7 +71,7 @@ if (!function_exists('upload_image'))
         function device_agent()
         {
             $agent = new Jenssegers\Agent\Agent();
-    
+
             if ($agent->isMobile()) {
                 return 'mobile';
             } elseif ($agent->isDesktop()) {
@@ -79,5 +79,16 @@ if (!function_exists('upload_image'))
             } elseif ($agent->isTablet()) {
                 return 'tablet';
             }
+        }
+    }
+
+    if (!function_exists('number_price')){
+        function number_price($price , $sale =0){
+            if ( $sale == 0) {
+                return number_format($price,0,',','.');
+            }
+
+            $price = ((100 - $sale) * $price ) /100;
+            return number_format($price,0,',','.');
         }
     }

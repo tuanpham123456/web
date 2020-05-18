@@ -19,7 +19,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach ($shopping as $item )
+                            @foreach ($shopping as $key=> $item )
                             <tr>
                                 <td>
                                     <a href="{{ route('get.product.detail',Str::slug($item->name).'-'.$item->id)}}"
@@ -31,12 +31,19 @@
                                     <a href="{{ route('get.product.detail',Str::slug($item->name).'-'.$item->id)}}"><strong>{{ $item->name}}</strong></a>
                                 </td>
                                 <td>
-                                    <p><b>{{ number_format($item->price,0,',','.')}} đ</b></p>
-                                    <p><span class="sale">- {{ $item->options->sale}}</span></p>
+                                    <p><b>{{ number_price($item->price) }} đ</b></p>
+                                    <p>
+                                        @if ($item->options->price_old)
+                                        <span style="text-decoration:line-through;"> {{ number_price($item->options->price_old,0,',','.')}} đ</span>
+                                        <span class="sale">- {{ $item->options->sale}}</span>
+
+                                        @endif
+                                    </p>
                                 </td>
                                 <td>
                                     <input type="number" min="1" class="input_quantity" name="quantity_14692" value="{{ $item->qty}}" id="">
                                     <input type="button" class="update_qty btn btn-danger fff" value="Cập nhật" >
+                                <a href="{{ route('get.shopping.delete',$key)}}">Xóa</a>
                                 </td>
                                 <td>
                                    {{ number_format($item->price * $item->qty,0,',','.')}} đ
