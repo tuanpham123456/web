@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class ShoppingCartController extends Controller
 {
@@ -46,6 +48,7 @@ class ShoppingCartController extends Controller
         }
 
         $data['tst_total_money'] = str_replace(',','', \Cart::subtotal(0));
+        $data['created_at']      = Carbon::now();
         $transactionID = Transaction::insertGetId($data);
         if ($transactionID){
             $shopping = \Cart::content();

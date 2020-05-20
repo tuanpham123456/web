@@ -46,13 +46,17 @@
                                     <td>{{number_format( $transaction->tst_total_money,0,',','.')}}đ</td>
                                     <td>
                                         @if ($transaction->tst_user_id)
-                                            <span class="label label-sucess">Thành viên</span>
+                                            <span class="label label-success">Thành viên</span>
                                         @else
                                             <span class="label label-default">Khách</span>
 
                                         @endif
                                     </td>
-                                    <td>{{ $transaction->tst_status}}</td>
+                                    <td>
+                                        <span class="label label-{{ $transaction->getStatus($transaction->tst_status)['class'] }}">
+                                            {{ $transaction->getStatus($transaction->tst_status)['name'] }}
+                                        </span>
+                                    </td>
                                     <td>
                                         {{ $transaction->created_at}}
                                     </td>

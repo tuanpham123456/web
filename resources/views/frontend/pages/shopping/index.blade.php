@@ -66,19 +66,19 @@
                         @csrf
                         <div class="form-group">
                             <label for="name" >Họ và tên <span class="cRed">(*)</span></label>
-                            <input name="tst_name" id="name" required="" type="text" class="form-control" >
+                            <input name="tst_name" id="name" value="{{ get_data_user('web','name')}}" required="" type="text" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="phone">Điện thoại <span class="cRed">(*)</span></label>
-                            <input name="tst_phone" id="phone" required="" type="text" class="form-control" >
+                            <input name="tst_phone" id="phone" value="{{ get_data_user('web','phone')}}" required="" type="text" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="address">Địa chỉ <span class="cRed">(*)</span></label>
-                            <input name="tst_address" id="address" required="" type="text" class="form-control">
+                            <input name="tst_address" id="address" value="{{ get_data_user('web','address')}}" required="" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="email">Email <span class="cRed">(*)</span></label>
-                            <input name="tst_email" id="email" type="text" required="" value="" class="form-control">
+                            <input name="tst_email" id="email" value="{{ get_data_user('web','email')}}" type="text" required="" value="" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="note">Ghi chú thêm</label>
