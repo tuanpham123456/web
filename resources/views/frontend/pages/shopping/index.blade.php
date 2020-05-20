@@ -31,11 +31,11 @@
                                     <a href="{{ route('get.product.detail',Str::slug($item->name).'-'.$item->id)}}"><strong>{{ $item->name}}</strong></a>
                                 </td>
                                 <td>
-                                    <p><b>{{ number_price($item->price) }} đ</b></p>
+                                    <p><b>{{ number_format($item->price,0,',','.') }} đ</b></p>
                                     <p>
                                         @if ($item->options->price_old)
-                                        <span style="text-decoration:line-through;"> {{ number_price($item->options->price_old,0,',','.')}} đ</span>
-                                        <span class="sale">- {{ $item->options->sale}}</span>
+                                        <span style="text-decoration:line-through;"> {{ number_format($item->options->price_old,0,',','.')}} đ</span>
+                                        <span class="sale">- {{ $item->options->sale}}%</span>
 
                                         @endif
                                     </p>
@@ -62,29 +62,30 @@
             <div class="customer">
                 <div class="title">THÔNG TIN ĐẶT HÀNG</div>
                 <div class="customer__content">
-                    <form class="from_cart_register" action="" method="post">
+                        <form class="from_cart_register" action="{{route('post.shopping.pay')}}" method="post">
+                        @csrf
                         <div class="form-group">
                             <label for="name" >Họ và tên <span class="cRed">(*)</span></label>
-                            <input name="name" id="name" type="text" class="form-control" >
+                            <input name="tst_name" id="name" required="" type="text" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="phone">Điện thoại <span class="cRed">(*)</span></label>
-                            <input name="phone" id="phone" type="text" class="form-control" >
+                            <input name="tst_phone" id="phone" required="" type="text" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="address">Địa chỉ <span class="cRed">(*)</span></label>
-                            <input name="address" id="address" type="text" class="form-control">
+                            <input name="tst_address" id="address" required="" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="email">Email <span class="cRed">(*)</span></label>
-                            <input name="email" id="email" type="text" value="" class="form-control">
+                            <input name="tst_email" id="email" type="text" required="" value="" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="note">Ghi chú thêm</label>
-                            <textarea name="note" id="note" cols="3" rows="2" style="min:height:100px" class="form-control"></textarea>
+                            <textarea name="tst_note"  id="note" cols="3" rows="2" style="min:height:100px" class="form-control"></textarea>
                         </div>
                         <div class="btn-buy">
-                            <button class="buy1 btn btn-purple" name="payment" value="1" type="submit">
+                            <button class="buy1 btn btn-purple"  type="submit">
                                 Thanh toán khi nhận hàng
                             </button>
                             <button class="btn btn-purple " name="payment" value="2" type="submit">

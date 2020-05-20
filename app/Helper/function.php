@@ -85,10 +85,10 @@ if (!function_exists('upload_image'))
     if (!function_exists('number_price')){
         function number_price($price , $sale =0){
             if ( $sale == 0) {
-                return number_format($price,0,',','.');
+                return $price;
             }
 
             $price = ((100 - $sale) * $price ) /100;
-            return number_format($price,0,',','.');
+            return $price;
         }
     }
