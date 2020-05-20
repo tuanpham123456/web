@@ -262,6 +262,13 @@
                             </a>
 
                         </li>
+                        <li class="">
+                            <a href="{{ route('admin.transaction.index')}}">
+                            <i class="fa fa-user"></i> <span>Transaction</span>
+
+                            </a>
+
+                        </li>
                         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
                         <li class="header">LABELS</li>
                         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
