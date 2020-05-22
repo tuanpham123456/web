@@ -53,6 +53,7 @@ class ShoppingCartController extends Controller
         if ($transactionID){
             $shopping = \Cart::content();
             foreach ($shopping as $key => $item){
+                // lưu chi tiết đơn hàng
                 Order::insert([
                     'od_transaction_id' => $transactionID,
                     'od_product_id'     => $item->id,
@@ -60,6 +61,10 @@ class ShoppingCartController extends Controller
                     'od_qty'            => $item->qty,
                     'od_price'          => $item->price,
                 ]);
+                // tăng pay (số lượt mua của sản phẩm đó)
+                \DB::table('products')
+                    ->where('id',$item->id)
+                    ->increment("pro_pay");
             }
         }
         \Cart::destroy();
