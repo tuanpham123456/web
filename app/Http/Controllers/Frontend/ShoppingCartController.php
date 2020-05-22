@@ -31,9 +31,9 @@ class ShoppingCartController extends Controller
             'price'     =>    number_price($product->pro_price, $product->pro_sale),
             'weight'    =>    '1',
             'options'   => [
-                'sale'  => $product->pro_sale,
+                'sale'      => $product->pro_sale,
                 'price_old' => $product->pro_price,
-                'image' => $product->pro_avatar,
+                'image'     => $product->pro_avatar,
             ]
 
             ]);
