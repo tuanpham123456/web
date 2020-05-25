@@ -51,6 +51,8 @@
         Route::get('','AdminTransactionController@index')->name('admin.transaction.index');
         Route::get('delete/{id}','AdminTransactionController@delete')->name('admin.transaction.delete');
 
+        Route::get('view-transaction/{id}','AdminTransactionController@getTransactionDetail')->name('ajax.admin.transaction.detail');
+
     });
 
     // route thuộc tính

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Models\Product;
 
 class AdminTransactionController extends Controller
 {
@@ -16,6 +18,20 @@ class AdminTransactionController extends Controller
             'transactions' => $transactions,
         ];
         return view ('admin.transaction.index',$viewData);
+    }
+    public function getTransactionDetail(Request $request, $id)
+    {
+
+        if ($request->ajax()) {
+            $orders = Order::with('product:id,pro_name,pro_slug,pro_avatar')->where('od_transaction_id', $id)
+                ->get();
+
+            $html = view("components.orders", compact('orders'))->render();
+
+            return response([
+                'html' => $html
+            ]);
+        }
     }
 
     public function delete($id){

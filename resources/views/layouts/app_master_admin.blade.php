@@ -480,6 +480,7 @@
         <script src="{{  asset('admin/dist/js/adminlte.min.js') }}"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="{{  asset('admin/dist/js/demo.js') }}"></script>
+
         <!-- page script -->
         <script type="text/javascript">
             // To make Pace works on Ajax calls
@@ -502,7 +503,21 @@
                         };
                         reader.readAsDataURL(this.files[0]);
                     }
+            });
+            $(".js-preview-transaction").click(function(event) {
+                event.preventDefault();
+                let $this = $(this);
+                let URL   = $this.attr('href');
+                $.ajax({
+                    url: URL
+                }).done(function( results ) {
+                    $("#modal-preview-transaction .content").html(results.html)
+                    $("#modal-preview-transaction").modal({
+                        show : true
+                    })
                 });
+            });
+
         </script>
     </body>
 </html>
