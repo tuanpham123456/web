@@ -520,6 +520,19 @@
                     })
                 });
             });
+            // xóa order mua hàng trong view đơn hàng
+            $('body').on("click",'.js-delete-order-item', function(event) {
+                    event.preventDefault();
+                    let URL = $(this).attr('href');
+                    let $this = $(this);
+                    $.ajax({
+                        url: URL
+                    }).done(function( results ) {
+                        if (results.code == 200) {
+                            $this.parents("tr").remove();
+                        }
+                    });
+                })
 
         </script>
     </body>

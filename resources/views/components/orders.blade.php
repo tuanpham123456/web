@@ -20,7 +20,8 @@
             <td>{{ $item->od_qty }}</td>
             <td>{{ number_format($item->od_price * $item->od_qty,0,',','.') }} đ</td>
             <td>
-                <a href="" class="btn btn-xs btn-danger js-delete-order-item">Delete</a>
+                <a href="{{ route('ajax_admin.transaction.order_item' , $item->id)}}" class="btn btn-xs btn-danger js-delete-order-item">
+                    Delete</a>
             </td>
         </tr>
     @endforeach

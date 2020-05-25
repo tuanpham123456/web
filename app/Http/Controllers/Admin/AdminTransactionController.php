@@ -33,6 +33,23 @@ class AdminTransactionController extends Controller
             ]);
         }
     }
+    public function deleteOrderItem(Request $request, $id)
+    {
+        if ($request->ajax()) {
+            $order = Order::find($id);
+            if ($order) {
+                $money = $order->od_qty * $order->od_price;
+                //
+                \DB::table('transactions')
+                    ->where('id', $order->od_transaction_id)
+                    ->decrement('tst_total_money', $money); // giảm cột 
+                // sau khi giảm xog
+                $order->delete();
+            }
+
+            return response(['code' => 200]);
+        }
+    }
 
     public function delete($id){
         $transactions = Transaction::find($id);
