@@ -504,10 +504,13 @@
                         reader.readAsDataURL(this.files[0]);
                     }
             });
+
             $(".js-preview-transaction").click(function(event) {
                 event.preventDefault();
                 let $this = $(this);
                 let URL   = $this.attr('href');
+                let ID    = $this.attr('data-id');
+                $("#idTransaction").html("#" + ID);
                 $.ajax({
                     url: URL
                 }).done(function( results ) {

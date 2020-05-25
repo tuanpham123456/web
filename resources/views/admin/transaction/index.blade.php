@@ -61,7 +61,7 @@
                                         {{ $transaction->created_at}}
                                     </td>
                                     <td>
-                                        <a href="{{ route('ajax.admin.transaction.detail',$transaction->id) }}}" class="btn btn-xs btn-info js-preview-transaction"><b class="fa fa-eye">Xem</b></a>
+                                        <a data-id="{{ $transaction->id}}" href="{{ route('ajax.admin.transaction.detail',$transaction->id) }}}" class="btn btn-xs btn-info js-preview-transaction"><b class="fa fa-eye">Xem</b></a>
                                         <a href="{{ route('admin.transaction.delete',$transaction->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
 
                                     </td>
@@ -87,7 +87,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title"> Chi tiết đơn hàng <b id="idTransaction">#1</b></h4>
+                    <h4 class="modal-title"> Chi tiết đơn hàng <b id="idTransaction"></b></h4>
                 </div>
                 <div class="modal-body">
                     <div class="content">
