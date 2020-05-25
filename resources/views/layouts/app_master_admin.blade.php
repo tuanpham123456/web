@@ -19,13 +19,12 @@
         <link rel="stylesheet" href="{{  asset('admin/dist/css/skins/_all-skins.min.css') }}">
         <!-- Pace style -->
         <link rel="stylesheet" href="{{  asset('admin/plugins/pace/pace.min.css') }}">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <!-- Google Font -->
+            {{--  sử dụng select2 trong bootstrap làm phần keyword trong product --}}
+        <link rel="stylesheet" href="{{  asset('admin/bower_components/select2/dist/css/select2.min.css') }}">
+            {{--  --}}
+            <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
@@ -476,25 +475,38 @@
         <script src="{{  asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
         <!-- FastClick -->
         <script src="{{  asset('admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
+        {{--  sử dụng select2 trong bootstrap làm phần keyword trong product --}}
+        <script src="{{  asset('admin/bower_components/select2/dist/js/select2.min.js') }}"></script>
+
         <!-- AdminLTE App -->
         <script src="{{  asset('admin/dist/js/adminlte.min.js') }}"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="{{  asset('admin/dist/js/demo.js') }}"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <!-- page script -->
         <script type="text/javascript">
             // To make Pace works on Ajax calls
             $(document).ajaxStart(function () {
-              Pace.restart()
+                Pace.restart()
             })
             $('.ajax').click(function () {
-              $.ajax({
-                url: '#', success: function (result) {
-                  $('.ajax-content').html('<hr>Ajax Request Completed !')
-                }
-              })
+                $.ajax({
+                    url: '#', success: function (result) {
+                    $('.ajax-content').html('<hr>Ajax Request Completed !')
+                    }
+                })
             })
-            $(".js-upload").change(function () {
+            $(function(){
+                // run select2
+                if ($(".js-select2-keyword").length > 0) {
+                    $(".js-select2-keyword").select2({
+                         placeholder: 'Chọn keyword',
+                         maximumSelectionLength : 3
+                    });
+                }
+
+                // preview  hình ảnh
+                $(".js-upload").change(function () {
                     let $this = $(this);
                     if (this.files && this.files[0]) {
                         var reader = new FileReader();
@@ -503,25 +515,25 @@
                         };
                         reader.readAsDataURL(this.files[0]);
                     }
-            });
-
-            $(".js-preview-transaction").click(function(event) {
-                event.preventDefault();
-                let $this = $(this);
-                let URL   = $this.attr('href');
-                let ID    = $this.attr('data-id');
-                $("#idTransaction").html("#" + ID);
-                $.ajax({
-                    url: URL
-                }).done(function( results ) {
-                    $("#modal-preview-transaction .content").html(results.html)
-                    $("#modal-preview-transaction").modal({
-                        show : true
-                    })
                 });
-            });
-            // xóa order mua hàng trong view đơn hàng
-            $('body').on("click",'.js-delete-order-item', function(event) {
+
+                $(".js-preview-transaction").click(function(event) {
+                    event.preventDefault();
+                    let $this = $(this);
+                    let URL   = $this.attr('href');
+                    let ID    = $this.attr('data-id');
+                    $("#idTransaction").html("#" + ID);
+                    $.ajax({
+                        url: URL
+                    }).done(function( results ) {
+                        $("#modal-preview-transaction .content").html(results.html)
+                        $("#modal-preview-transaction").modal({
+                            show : true
+                        })
+                    });
+                });
+
+                $('body').on("click",'.js-delete-order-item', function(event) {
                     event.preventDefault();
                     let URL = $(this).attr('href');
                     let $this = $(this);
@@ -534,6 +546,8 @@
                     });
                 })
 
+
+            })
         </script>
     </body>
 </html>

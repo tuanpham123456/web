@@ -8,6 +8,7 @@ use App\Http\Requests\AdminRequestProduct;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Attribute;
+use App\Models\Keyword;
 
 class AdminProductController extends Controller
 {
@@ -29,8 +30,9 @@ class AdminProductController extends Controller
         $attributeOld  = [];
 
         $attributes = $this->syncAttributeGroup();
+        $keywords = Keyword::all();
 
-        return view('admin.product.create', compact('categories','attributeOld','attributes'));
+        return view('admin.product.create', compact('categories','attributeOld','attributes','keywords'));
     }
 
     public function store(AdminRequestProduct $request)
@@ -60,6 +62,7 @@ class AdminProductController extends Controller
         $attributes = $this->syncAttributeGroup();
 
         $product = Product::findOrFail($id);
+        $keywords = Keyword::all();
 
         $attributeOld = \DB::table('products_attributes')
         ->where('pa_product_id',$id)
@@ -67,7 +70,7 @@ class AdminProductController extends Controller
         ->toArray();
 
         if(!$attributeOld) $attributeOld = [];
-        return view('admin.product.update', compact('categories','product','attributes','attributeOld'));
+        return view('admin.product.update', compact('categories','product','attributes','attributeOld','keywords'));
     }
 
     public function update(AdminRequestProduct $request, $id)

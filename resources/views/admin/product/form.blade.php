@@ -31,13 +31,17 @@
                         <input type="number" value="{{ $product->pro_sale ?? old('pro_sale')}}" name="pro_sale"  class="form-control " data-type="currency " placeholder="5 ">
                     </div>
                 </div>
-                <div class="col-sm-9 ">
-                    <div class="form-group ">
-                        <label for="tag ">Keyword</label>
-                        <select name="" class="form-control js-select2-keyword" multiple=" ">
-                            <option value=" ">__Click__</option>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <label for="tag">Keyword</label>
+                        <select name="keywords[]" class="form-control js-select2-keyword" multiple="">
+                            <option value="">__Click__</option>
+                            @foreach($keywords as $keyword)
+                                <option value="{{ $keyword->id }}" >
+                                    {{ $keyword->k_name }}</option>
+                            @endforeach
                         </select>
-                    </div>  
+                    </div>
                 </div>
             </div>
             <div class="form-group ">
