@@ -37,7 +37,7 @@
                         <select name="keywords[]" class="form-control js-select2-keyword" multiple="">
                             <option value="">__Click__</option>
                             @foreach($keywords as $keyword)
-                                <option value="{{ $keyword->id }}" >
+                                <option value="{{ $keyword->id }}" {{ in_array($keyword->id, $keywordOld ) ? "selected='selected'"  : '' }}>
                                     {{ $keyword->k_name }}</option>
                             @endforeach
                         </select>

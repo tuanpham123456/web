@@ -28,6 +28,7 @@ class AdminProductController extends Controller
         $categories = Category::all();
 
         $attributeOld  = [];
+        $keywordOld  = [];
 
         $attributes = $this->syncAttributeGroup();
         $keywords = Keyword::all();
@@ -37,7 +38,7 @@ class AdminProductController extends Controller
 
     public function store(AdminRequestProduct $request)
     {
-        $data = $request->except('_token','pro_avatar','attribute');
+        $data = $request->except('_token','pro_avatar','attribute','keywords');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['created_at']   = Carbon::now();
 
@@ -49,10 +50,11 @@ class AdminProductController extends Controller
 
         $id = Product::insertGetId($data);
 
-        if ($id) {
+        if ($id) { // nếu tồn tại id
             $this->syncAttribute($request->attribute, $id);
-
+            $this->syncKeyword($request->keywords, $id);
         }
+
 
         return redirect()->back();
     }
@@ -65,18 +67,34 @@ class AdminProductController extends Controller
         $keywords = Keyword::all();
 
         $attributeOld = \DB::table('products_attributes')
-        ->where('pa_product_id',$id)
-        ->pluck('pa_attribute_id')
-        ->toArray();
+            ->where('pa_product_id',$id)
+            ->pluck('pa_attribute_id')
+            ->toArray();
 
-        if(!$attributeOld) $attributeOld = [];
-        return view('admin.product.update', compact('categories','product','attributes','attributeOld','keywords'));
+        $keywordOld = \DB::table('products_keywords')
+            ->where('pk_product_id', $id)
+            ->pluck('pk_keyword_id')
+            ->toArray();
+
+        if(!$attributeOld) $attributeOld = []; //nếu k tồn tại thì rỗng
+        if (!$keywordOld)    $keywordOld = []; //nếu k tồn tại thì rỗng
+
+        $viewData = [
+            'categories'    => $categories,
+            'product'       => $product,
+            'attributes'    => $attributes,
+            'attributeOld'  => $attributeOld,
+            'keywords'      => $keywords,
+            'keywordOld'    => $keywordOld,
+
+        ];
+        return view('admin.product.update',$viewData);
     }
 
     public function update(AdminRequestProduct $request, $id)
     {
         $product           = Product::find($id);
-        $data               = $request->except('_token','pro_avatar','attribute');
+        $data               = $request->except('_token','pro_avatar','attribute','keywords');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['updated_at'] = Carbon::now();
 
@@ -89,10 +107,9 @@ class AdminProductController extends Controller
         $update = $product->update($data);
         if ($update){
             $this->syncAttribute($request->attribute, $id);
+            $this->syncKeyword($request->keywords, $id);
 
         }
-
-
         return redirect()->back();
     }
 
@@ -117,7 +134,7 @@ class AdminProductController extends Controller
         if ($product) $product->delete();
         return redirect()->back();
     }
-
+    // đồng bộ lại attribute
     protected function syncAttribute($attributes , $idProduct)
     {
         if (!empty($attributes)) {
@@ -135,11 +152,27 @@ class AdminProductController extends Controller
         }
     }
 
+    // hàm dùng chung vs create và update
+    private function syncKeyword($keywords, $idProduct)
+    {
+        if (!empty($keywords)) {
+            $datas = []; //khai báo mảng rỗng
+            foreach ($keywords as $key => $keyword) {
+                $datas[] = [
+                    'pk_product_id' => $idProduct,
+                    'pk_keyword_id' => $keyword
+                ];
+            }
+
+            \DB::table('products_keywords')->where('pk_product_id', $idProduct)->delete(); //xóa hết đi trừ trường hợp update
+            \DB::table('products_keywords')->insert($datas);
+        }
+    }
+    //
     public function syncAttributeGroup()
     {
         $attributes     = Attribute::get();
         $groupAttribute = [];
-
         foreach ($attributes as $key => $attribute) {
             $key = $attribute->gettype($attribute->atb_type)['name'];
             $groupAttribute[$key][] = $attribute->toArray();
@@ -147,13 +180,6 @@ class AdminProductController extends Controller
 
         return $groupAttribute;
     }
-
-
-
-
-
-
-
 
 
 }
