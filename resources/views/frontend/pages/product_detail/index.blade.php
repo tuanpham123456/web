@@ -104,6 +104,20 @@
 
                             </div>
                         </div>
+                        @if (isset($product->keywords))
+                        <div class="infomation" style="margin-top:20px">
+                            <h2 class="infomation_title">Keyword</h2>
+                            <div class="infomation_group">
+                                <div class="item">
+                                    @foreach ($product->keywords as $keyword)
+                                    <a href="" style="border:1px solid #E91E65;display:inline-block;font-size:13px;padding:0 5px;margin-right:10px;color:#E91E63;border-radius:5px">
+                                        {{$keyword->k_name}}
+                                    </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        @endif
                     </div>
                     <div class="ads">
                         <a href="#" title="Giam giá" target="_blank"><img alt="Hoan tien" style="width: 100%" src="{{ url('images/banner/dongho.jpg') }}"></a>

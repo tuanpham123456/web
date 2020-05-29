@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+// use App\Models\Keyword;
 
 class Product extends Model
 {
@@ -25,6 +26,10 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class,'pro_category_id');
+    }
+    public function keywords(){
+        //belongstomany quan hệ nhiều nhiều
+        return $this->belongsToMany(Keyword::class,'products_keywords','pk_product_id','pk_keyword_id');
     }
 
 }

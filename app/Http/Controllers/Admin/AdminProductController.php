@@ -134,6 +134,23 @@ class AdminProductController extends Controller
         if ($product) $product->delete();
         return redirect()->back();
     }
+
+    // hàm dùng chung vs create và update
+    private function syncKeyword($keywords, $idProduct)
+    {
+        if (!empty($keywords)) {
+            $datas = []; //khai báo mảng rỗng
+            foreach ($keywords as $key => $keyword) {
+                $datas[] = [
+                    'pk_product_id' => $idProduct,
+                    'pk_keyword_id' => $keyword
+                ];
+            }
+
+            \DB::table('products_keywords')->where('pk_product_id', $idProduct)->delete(); //xóa hết đi trừ trường hợp update
+            \DB::table('products_keywords')->insert($datas);
+        }
+    }
     // đồng bộ lại attribute
     protected function syncAttribute($attributes , $idProduct)
     {
@@ -152,23 +169,6 @@ class AdminProductController extends Controller
         }
     }
 
-    // hàm dùng chung vs create và update
-    private function syncKeyword($keywords, $idProduct)
-    {
-        if (!empty($keywords)) {
-            $datas = []; //khai báo mảng rỗng
-            foreach ($keywords as $key => $keyword) {
-                $datas[] = [
-                    'pk_product_id' => $idProduct,
-                    'pk_keyword_id' => $keyword
-                ];
-            }
-
-            \DB::table('products_keywords')->where('pk_product_id', $idProduct)->delete(); //xóa hết đi trừ trường hợp update
-            \DB::table('products_keywords')->insert($datas);
-        }
-    }
-    //
     public function syncAttributeGroup()
     {
         $attributes     = Attribute::get();

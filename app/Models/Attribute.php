@@ -33,8 +33,8 @@ class Attribute extends Model
         return Arr::get($this->type, $this->atb_type,"[N\A]");
     }
 
-        public function category()
-        {
-            return $this->belongsTo(Category::class,'atb_category_id');
-        }
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'atb_category_id');
+    }
 }

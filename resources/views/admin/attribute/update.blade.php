@@ -45,8 +45,8 @@
                                 <label for="name">Category <span class="text-danger">(*)</span></label>
                                 <select class="form-control" name="atb_category_id">
                                     @foreach($categories as $item)
-                                        <option value="1" {{ $attribute->atb_category_id == $item->id ? "selected='selected'"  : '' }}>{{ $item->c_name }}</option>
-                                    @endforeach
+                                    <option value="{{$attribute->atb_category_id ,$item->id}}" {{ $attribute->atb_category_id == $item->id ? "selected='selected'"  : '' }}>{{ $item->c_name }}</option>
+                                @endforeach
                                 </select>
                                 @if ($errors->first('atb_category_id'))
                                     <span class="text-danger">{{ $errors->first('atb_category_id') }}</span>

@@ -45,7 +45,7 @@
                                 <label for="name">Category <span class="text-danger">(*)</span></label>
                                 <select class="form-control" name="atb_category_id">
                                     @foreach($categories as $item)
-                                        <option value="1">{{ $item->c_name }}</option>
+                                    <option value="{{}}">{{ $item->c_name }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->first('atb_category_id'))
@@ -60,7 +60,7 @@
                                 <button type="submit" class="btn btn-success">Lưu dữ liệu <i class="fa fa-save"></i></button>
                             </div>
                         </div>
-                    </form>  
+                    </form>
                 </div>
             </div>
             <!-- /.box -->
