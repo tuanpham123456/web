@@ -1,4 +1,8 @@
 <?php
+    Route::group(['prefix' => 'admin-auth','namespace' => 'Admin\Auth'],function(){
+        Route::get('login','AdminLoginController@getLoginAdmin')->name('get.login.admin');
+    });
+
     Route::group(['prefix' => 'api-admin','namespace' =>'Admin'], function(){
             Route::get('/',function(){
                 return view ('admin.index');
