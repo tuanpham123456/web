@@ -82,7 +82,7 @@
                             </li>
                             <!-- Notifications: style can be found in dropdown.less -->
                             <li class="dropdown notifications-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
                                 <span class="label label-warning">10</span>
                                 </a>
@@ -235,7 +235,7 @@
                         </li>
                         <li class="">
                             <a href="{{ route('admin.keyword.index')}}">
-                            <i class="fa fa-key"></i> <span>Keyword</span>
+                            <i class="fa fa-key"> </i><span  >Keyword</span>
 
                             </a>
 
@@ -501,8 +501,8 @@
                 if ($(".js-select2-keyword").length > 0) {
                     $(".js-select2-keyword").select2({
                          placeholder: 'Chọn keyword',
-                         maximumSelectionLength : 3
-                    });
+                         maximumSelectionLength : 3,
+                        });
                 }
 
                 // preview  hình ảnh

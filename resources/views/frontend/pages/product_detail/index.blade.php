@@ -131,11 +131,12 @@
                     <div class="tabs__content">
                         <div class="product-five">
                             <div class="bot js-product-5 owl-carousel owl-theme owl-custom">
-                                @for($i=0; $i
-                                < 8; $i++) <div class="item">
-                                    @include('frontend.components.product_item')
+                                @foreach ($productsSuggest as  $product)
+                                    <div class="item">
+                                        @include('frontend.components.product_item',['product' => $product])
+                                    </div>
+                                @endforeach
                             </div>
-                            @endfor
                         </div>
                     </div>
                 </div>

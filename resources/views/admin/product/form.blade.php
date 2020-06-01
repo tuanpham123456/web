@@ -34,10 +34,10 @@
                 <div class="col-sm-9">
                     <div class="form-group">
                         <label for="tag">Keyword</label>
-                        <select name="keywords[]" class="form-control js-select2-keyword" multiple="">
+                        <select name="keywords[]" class="form-control js-select2-keyword" multiple="" >
                             <option value="">__Click__</option>
                             @foreach($keywords as $keyword)
-                                <option value="{{ $keyword->id }}" {{ in_array($keyword->id, $keywordOld ) ? "selected='selected'"  : '' }}>
+                                <option  value="{{ $keyword->id }}" {{ in_array($keyword->id, $keywordOld ) ? "selected='selected'"  : '' }}>
                                     {{ $keyword->k_name }}</option>
                             @endforeach
                         </select>

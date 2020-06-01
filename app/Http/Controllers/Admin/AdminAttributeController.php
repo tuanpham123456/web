@@ -46,7 +46,6 @@ class AdminAttributeController extends Controller
 
     public function update(AdminRequestAttribute $request, $id)
     {
-         //lấy danh sách category
         $attribute          = Attribute::find($id);
         $data               = $request->except('_token');
         $data['atb_slug']     = Str::slug($request->atb_name);
