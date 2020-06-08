@@ -2,6 +2,8 @@
     Route::group(['prefix' => 'admin-auth','namespace' => 'Admin\Auth'],function(){
         Route::get('login','AdminLoginController@getLoginAdmin')->name('get.login.admin');
         Route::post('login','AdminLoginController@postLoginAdmin');
+
+        Route::get('logout','AdminLoginController@getLogoutAdmin')->name('get.logout.admin');
     });
 
     Route::group(['prefix' => 'api-admin','namespace' =>'Admin','middleware' =>'check_admin_login'], function(){

@@ -13,6 +13,7 @@ class AdminLoginController extends Controller
     public function getLoginAdmin(){
         return view ('admin.auth.login');
     }
+
     public function postLoginAdmin(Request $request){
 
         if (\Auth::guard('admins')->attempt(['email' => $request->email,'password' => $request->password])){
@@ -21,4 +22,10 @@ class AdminLoginController extends Controller
         }
         return redirect()->back();
     }
+
+    public function getLogoutAdmin(){
+        \Auth::guard('admins')->logout();
+        return redirect()->to('/');
+    }
+
 }
