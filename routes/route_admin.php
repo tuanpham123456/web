@@ -4,7 +4,7 @@
         Route::post('login','AdminLoginController@postLoginAdmin');
     });
 
-    Route::group(['prefix' => 'api-admin','namespace' =>'Admin'], function(){
+    Route::group(['prefix' => 'api-admin','namespace' =>'Admin','middleware' =>'check_admin_login'], function(){
             Route::get('/',function(){
                 return view ('admin.index');
     });
