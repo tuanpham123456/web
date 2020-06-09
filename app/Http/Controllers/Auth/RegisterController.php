@@ -47,10 +47,16 @@ class RegisterController extends Controller
     }
     public function postFormRegister(RequestRegister $request){
         $data               = $request->except('_token');
+
         $data['password']   =Hash::make($data['password']);
         $data['created_at'] = Carbon::now();
         $id =   User::insertGetId($data);
         if ($id){
+
+            if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+                // đăng ký thành công thì vào luôn
+                return \redirect()->to('/');
+            }
             return redirect()->route('get.login');
         }
     }

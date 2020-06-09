@@ -24,22 +24,22 @@ class RequestRegister extends FormRequest
     public function rules()
     {
         return [
-            'email'     =>  'required|max:190|min:3|unique:users,name,'.$this->id,
-            'name'      =>  'required',
-            'phone'     =>  'required',
-            'password'  =>  'required',
+            'email'     => 'required|max:190|min:3|unique:users,email,'.$this->id,
+            'name'      => 'required',
+            'phone'     => 'required|unique:users,phone,'.$this->id,
+            'password'  => 'required',
+//            'g-recaptcha-response' => 'required|captcha'
         ];
     }
+
     public function messages()
     {
         return [
-            'email.required'    => 'Dữ liệu không được để trống',
-            'email.min'         => 'Nhập phải nhiều hơn 3 ký tự',
-            'email.unique'      => 'Dữ liệu đã tồn tại',
-            'email.max'         => 'Nhập tối đa 190 ký tự',
-            'name.required'     => 'Dữ liệu không được để trống',
-            'password.required' => 'Dữ liệu không được để trống',
-            'phone.required'    => 'Dữ liệu không được để trống'
+            'email.required'         => 'Dữ liệu không được để trống',
+            'email.unique'           => 'Dữ liệu đã tồn tại',
+            'phone.unique'           => 'Dữ liệu đã tồn tại',
+            'phone.required'         => 'Dữ liệu không được để trống',
+            'password.required'      => 'Dữ liệu không được để trống',
         ];
     }
 }

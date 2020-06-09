@@ -48,7 +48,7 @@ class LoginController extends Controller
 
     }
 
-    public function postLogin(RequestLogin $request){
+    public function postFormLogin(RequestLogin $request){
         // build: search auth laravel 6
         $credentials = $request->only('email', 'password');
 
