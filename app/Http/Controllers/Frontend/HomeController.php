@@ -6,6 +6,7 @@ use App\Models\Product;
 class HomeController extends FrontendController
 {
     public function index(){
+
         $productsNew = Product::where([
             'pro_active' => 1,
         ])

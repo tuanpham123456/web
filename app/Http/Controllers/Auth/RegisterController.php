@@ -52,6 +52,11 @@ class RegisterController extends Controller
         $data['created_at'] = Carbon::now();
         $id =   User::insertGetId($data);
         if ($id){
+            // hiển thị thông báo khi đăng ký thành công
+            \Session::flash('toastr' ,[
+                'type'      => 'success',
+                'message'   => 'Đăng ký thành công'
+            ]);
 
             if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])){
                 // đăng ký thành công thì vào luôn

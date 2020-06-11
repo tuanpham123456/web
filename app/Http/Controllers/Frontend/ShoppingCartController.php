@@ -37,6 +37,11 @@ class ShoppingCartController extends Controller
             ]
 
             ]);
+            // thông báo thêm giỏ hàng
+            \Session::flash('toastr' ,[
+                'type'      => 'success',
+                'message'   => 'Thêm giỏ hàng thành công'
+            ]);
         return redirect()->back();
 
 
@@ -66,13 +71,24 @@ class ShoppingCartController extends Controller
                     ->where('id',$item->id)
                     ->increment("pro_pay");
             }
-        }
+        }// thông báo lưu đơn hàng
+        \Session::flash('toastr' ,[
+            'type'      => 'success',
+            'message'   => 'Đơn hàng bạn đã được lưu'
+        ]);
         \Cart::destroy();
+
         return redirect()->to('/');
     }
 
     // xóa giỏ hàng
     public function delete($rowId){
+        //thông báo xóa giỏ hàng
+        \Session::flash('toastr' ,[
+            'type'      => 'success',
+            'message'   => 'Xóa sản phẩm khỏi đơn hàng thành công'
+        ]);
+
         \Cart::remove($rowId);
         return redirect()->back();
 
