@@ -31,7 +31,7 @@ Route::group(['namespace' => 'Auth','prefix' => 'account'], function () {
 });
 
 Route::group(['namespace' => 'Frontend'],function(){
-    Route::get('','HomeController@index')->name('get.home');
+    Route::get('/','HomeController@index')->name('get.home');
     Route::get('san-pham','ProductController@index')->name('get.product.list');
     Route::get('danh-muc/{slug}','CategoryController@index')->name('get.category.list');
     Route::get('san-pham/{slug}','ProductDetailController@getProductDetail')->name('get.product.detail');
@@ -50,4 +50,4 @@ include('route_admin.php');
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('get.home');
+// Route::get('/home', 'HomeController@index')->name('get.home');

@@ -42,7 +42,10 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
     public function getFormRegister(){
-        return view('auth.register');
+        $viewData =[
+            'title_page'    => 'Đăng ký'
+        ];
+        return view('auth.register',$viewData);
 
     }
     public function postFormRegister(RequestRegister $request){

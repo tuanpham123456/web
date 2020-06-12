@@ -16,8 +16,12 @@ class ShoppingCartController extends Controller
     public function index(){
         // lấy danh sách xử dụng hàm trong package
         $shopping = \Cart::content();
+        $viewData = [
+            'shopping'      =>  $shopping,
+            'title_page'    =>  'Danh sách giỏ hàng'
+        ];
 
-        return view ('frontend.pages.shopping.index',compact('shopping'));
+        return view ('frontend.pages.shopping.index',$viewData);
     }
     // Thêm giỏ hàng
     public function add($id){

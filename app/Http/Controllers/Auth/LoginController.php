@@ -40,7 +40,10 @@ class LoginController extends Controller
         // $this->middleware('guest')->except('logout');
     }
     public function getFormLogin(){
-        return view('auth.login');
+        $viewData  = [
+            'title_page'    => 'Đăng nhập'
+        ];
+        return view('auth.login',$viewData);
     }
     public function getLogout(){
         Auth::logout();

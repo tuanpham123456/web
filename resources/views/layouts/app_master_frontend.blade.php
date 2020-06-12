@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="https://codeseven.github.io/toastr/build/toastr.min.css">
+    <title >{{ $title_page ?? "Shop Đồng Hồ TP" }}</title>
     @yield('css')
 
     {{-- tích hợp thông báo  --}}

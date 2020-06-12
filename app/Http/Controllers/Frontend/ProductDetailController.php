@@ -16,8 +16,9 @@ class ProductDetailController extends FrontendController
             $product = Product::with('category:id,c_name,c_slug','keywords')->FindOrFail($id); //keywords ở belongstomany Product
 
             $viewData = [
-                'product'           => $product,
-                'productsSuggest'   => $this->getProductSuggest($product->pro_category_id)
+                'product'           =>  $product,
+                'title_page'        =>  $product->pro_name,
+                'productsSuggest'   =>  $this->getProductSuggest($product->pro_category_id)
             ];
             return view('frontend.pages.product_detail.index',$viewData);
 
