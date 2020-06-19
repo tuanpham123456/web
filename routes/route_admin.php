@@ -110,7 +110,7 @@
 
     });
     //article
-    Route::group(['prefix' => 'memu'],function(){
+    Route::group(['prefix' => 'article'],function(){
         Route::get('','AdminArticleController@index')->name('admin.article.index');
         // thêm form
         Route::get('create','AdminArticleController@create')->name('admin.article.create');
