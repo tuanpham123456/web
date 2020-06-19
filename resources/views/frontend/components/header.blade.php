@@ -71,7 +71,6 @@
                                 <i class="icon icon-submenu"></i>
                             </span>
                              </a>
-
                         </li>
                         @endforeach
                         @endif
