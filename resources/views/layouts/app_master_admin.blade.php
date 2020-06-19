@@ -268,6 +268,20 @@
                             </a>
 
                         </li>
+                        <li class="">
+                            <a href="{{ route('admin.menu.index')}}">
+                            <i class="fa fa-edit"></i> <span>Menu</span>
+
+                            </a>
+
+                        </li>
+                        <li class="">
+                            <a href="{{ route('admin.article.index')}}">
+                            <i class="fa fa-edit"></i> <span>Article</span>
+
+                            </a>
+
+                        </li>
                         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
                         <li class="header">LABELS</li>
                         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
