@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         // giả lập tài khoản admin
         \DB::table('admins')->insert([
-            'name'      => 'tuanpham',
+            'name'      => 'TuanPham',
             'email'     => 'bicudu0403@gmail.com',
             'phone'     => '0932505372',
             'password'  => Hash::make('04031998'),
