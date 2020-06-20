@@ -31,46 +31,46 @@
                                     <th>Time</th>
                                     <th>Action</th>
                                 </tr>
-                                {{-- @if ($categories)
-                                @foreach ($categories as $category)
+                                @if ($menus)
+                                @foreach ($menus as $menu)
                                 <tr>
-                                    <td>{{ $category->id}}</td>
-                                    <td>{{ $category->c_name}}</td>
+                                    <td>{{ $menu->id}}</td>
+                                    <td>{{ $menu->mn_name}}</td>
                                     <td>
-                                        <img src="{{ asset(pare_url_file($category->c_avatar))}}" style="width:80px;height:80px">
+                                        <img src="{{ asset(pare_url_file($menu->mn_avatar))}}" style="width:80px;height:80px">
                                     </td>
                                     <td>
-                                        @if ($category->c_status == 1)
-                                        <a href="{{ route('admin.category.active',$category->id)}}" class="label label-info">Show</a>
+                                        @if ($menu->mn_status == 1)
+                                        <a href="{{ route('admin.menu.active',$menu->id)}}" class="label label-info">Show</a>
                                         @else
-                                        <a href="{{ route('admin.category.active',$category->id)}}" class="label label-default">Hide</a>
+                                        <a href="{{ route('admin.menu.active',$menu->id)}}" class="label label-default">Hide</a>
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($category->c_hot == 1)
-                                        <a href="{{ route('admin.category.hot',$category->id)}}" class="label label-info">Hot</a>
+                                        @if ($menu->mn_hot == 1)
+                                        <a href="{{ route('admin.menu.hot',$menu->id)}}" class="label label-info">Hot</a>
                                         @else
-                                        <a href="{{ route('admin.category.hot',$category->id)}}" class="label label-default">None</a>
+                                        <a href="{{ route('admin.menu.hot',$menu->id)}}" class="label label-default">None</a>
                                         @endif
                                     </td>
                                     <td>
-                                        {{ $category->created_at}}
+                                        {{ $menu->created_at}}
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.category.update',$category->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a>
-                                        <a href="{{ route('admin.category.delete',$category->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
+                                        <a href="{{ route('admin.menu.update',$menu->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Update</a>
+                                        <a href="{{ route('admin.menu.delete',$menu->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>
 
                                     </td>
                                 </tr>
                                 @endforeach
-                               @endif --}}
+                               @endif
                             </tbody>
                         </table>
 
                     </div>
 
                     <div class="box-footer">
-                        {{-- {!! $categories->links() !!} --}}
+                        {{-- {!! $menus->links() !!} --}}
                     </div>
 
                 </div>
