@@ -37,7 +37,7 @@
                         <select name="keywords[]" class="form-control js-select2-keyword" multiple="" >
                             <option value="">__Click__</option>
                             @foreach($keywords as $keyword)
-                                <option  value="{{ $keyword->id }}" {{ in_array($keyword->id, $keywordOld ) ? "selected='selected'"  : '' }}>
+                                <option  value="{{ $keyword->id }}" {{  in_array($keyword->id,$keywordOld)  ? "selected='selected'"  : '' }}>
                                     {{ $keyword->k_name }}</option>
                             @endforeach
                         </select>
@@ -169,7 +169,7 @@
     <div class="col-sm-12 clearfix">
         <div class="box-footer text-center">
             <a href="{{ route('admin.product.index')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
-            <button type="submit" class="btn btn-success">{{ isset($product) ? "Thêm mới " : "Cập nhật "}}<i class="fa fa-save"></i></button>
+            <button type="submit" class="btn btn-success">{{ isset($product) ? "Cập nhật " : "Thêm mới"}}<i class="fa fa-save"></i></button>
         </div>
     </div>
 </form>
