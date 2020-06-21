@@ -16,11 +16,10 @@
             </div>
 
             <div class="form-group ">
-                <label for="exampleInputEmail1 ">Description</label>
-                <textarea name="a_description" class="form-control"
-                    cols="5 " rows="2 " autocomplete="off ">{{ $article->a_description ?? old('a_description')}}</textarea>
+                <label for="exampleInputEmail1">Description</label>
+                <textarea name="a_description" class="form-control" cols="5" rows="2" autocomplete="off">{{  $article->a_description ?? old('a_description') }}</textarea>
                 @if ($errors->first('a_description'))
-                <span class="text-danger">{{ $errors->first('a_description')}}</span>
+                    <span class="text-danger">{{ $errors->first('a_description') }}</span>
                 @endif
             </div>
             <div class="form-group ">
@@ -28,12 +27,13 @@
                 <select name="a_menu_id" class="form-control ">
                     <option value="">__Click__</option>
                     @foreach($menus as $menu)
-                        <option value="{{ $menu->id }}">{{ $menu->mn_name }}
+                        <option value="{{ $menu->id }}" {{ ($article->a_menu_id ?? 0 == $menu->id) ? "selected='selected'" : "" }}>
+                            {{  $menu->mn_name }}
                         </option>
                     @endforeach
                 </select>
-                @if ($errors->first('pro_category_id'))
-                <span class="text-danger">{{ $errors->first('pro_category_id') }}</span>
+                @if ($errors->first('a_menu_id'))
+                    <span class="text-danger">{{ $errors->first('a_menu_id') }}</span>
                 @endif
             </div>
 
@@ -52,10 +52,9 @@
             <div class="box-body">
                 <div class="form-group ">
                     <label for="exampleInputEmail1">Content</label>
-                    <textarea name="a_content"  id="content" class="form-control textarea"
-                        cols="5" rows="2">{{ $article->a_content ?? old('a_content')}}</textarea>
+                    <textarea name="a_content" id="content" class="form-control textarea" cols="5" rows="2" >{{ $article->a_content ?? '' }}</textarea>
                     @if ($errors->first('a_content'))
-                    <span class="text-danger">{{ $errors->first('pro_content')}}</span>
+                        <span class="text-danger">{{ $errors->first('a_content') }}</span>
                     @endif
                 </div>
             </div>

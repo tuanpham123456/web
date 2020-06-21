@@ -26,7 +26,8 @@ class CategoryController extends Controller
 
             $viewData = [
                 'products'      =>  $products,
-                'title_page'    =>  $category->c_name //tiêu đề
+                // 'title_page'    =>  $category->c_name
+                 //tiêu đề
             ];
 
             return view ('frontend.pages.product.index',$viewData);

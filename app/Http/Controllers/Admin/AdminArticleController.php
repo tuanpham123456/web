@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Menu;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+use App\Http\Requests\AdminRequestArticle;
 class AdminArticleController extends Controller
 {
     public function index(){
@@ -24,16 +27,22 @@ class AdminArticleController extends Controller
         return view ('admin.article.create',compact('menus'));
     }
 
-//     public function store(AdminRequestMenu $request){
-//         //gán data
-//         $data = $request->except('_token');
-//         // except lấy tất cả trừ  giá trị 'token' đc thêm
-//         $data['a_slug']     = Str::slug($request->a_name);
-//         $data['created_at']  = Carbon::now();
+    public function store(AdminRequestArticle $request)
+    {
+        $data = $request->except('_token','a_avatar');
+        $data['a_slug']     = Str::slug($request->a_name);
+        $data['created_at']   = Carbon::now();
 
-//         // model
-//         dd($data)->all();
 
-//    }
+        if ($request->a_avatar) {
+            $image = upload_image('a_avatar');
+            if ($image['code'] == 1)
+                $data['a_avatar'] = $image['name'];
+        }
+
+        $id = Article::insertGetId($data);
+
+        return redirect()->back();
+    }
+
 }
-
