@@ -87,27 +87,17 @@
         Route::get('active/{id}','AdminProductController@active')->name('admin.product.active');
 
     //menu
-    Route::group(['prefix' => 'memu'],function(){
+    Route::group(['prefix' => 'menu'], function(){
         Route::get('','AdminMenuController@index')->name('admin.menu.index');
-        // thêm form
         Route::get('create','AdminMenuController@create')->name('admin.menu.create');
-        // sử lý thêm mới
         Route::post('create','AdminMenuController@store');
 
-        // update
-        Route::get('update{id}','AdminMenuController@edit')->name('admin.menu.update');
-        Route::post('update{id}','AdminMenuController@update');
+        Route::get('update/{id}','AdminMenuController@edit')->name('admin.menu.update');
+        Route::post('update/{id}','AdminMenuController@update');
 
-        // xóa danh mục
-        Route::get('delete{id}','AdminMenuController@delete')->name('admin.menu.delete');
-
-        // xử lý hành động ẩn hiện danh mục
-        Route::get('active{id}','AdminMenuController@active')->name('admin.menu.active');
-
-        // xử lý sản phẩm có hot k
-        Route::get('hot{id}','AdminMenuController@hot')->name('admin.menu.hot');
-
-
+        Route::get('active/{id}','AdminMenuController@active')->name('admin.menu.active');
+        Route::get('hot/{id}','AdminMenuController@hot')->name('admin.menu.hot');
+        Route::get('delete/{id}','AdminMenuController@delete')->name('admin.menu.delete');
     });
     //article
     Route::group(['prefix' => 'article'],function(){
@@ -132,6 +122,7 @@
 
 
     });
+
         Route::get('delete/{id}','AdminProductController@delete')->name('admin.product.delete');
     });
 });

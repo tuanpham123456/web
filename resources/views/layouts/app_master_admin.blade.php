@@ -275,6 +275,7 @@
                             </a>
 
                         </li>
+
                         <li class="">
                             <a href="{{ route('admin.article.index')}}">
                             <i class="fa fa-edit"></i> <span>Article</span>

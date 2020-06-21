@@ -11,12 +11,14 @@ use Illuminate\Support\Str;
 
 class AdminMenuController extends Controller
 {
-    public function index(){
-        $menus  = Menu::all();
-        $viewData = [
+    public function index()
+    {
+        $menus      = Menu::all();
+        $viewData   = [
             'menus' => $menus
         ];
-        return view ('admin.menu.index',$viewData);
+
+        return view('admin.menu.index', $viewData);
     }
 
     public function create(){
