@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class AdminCategoryController extends AdminController
 {
     public function index(){
-        $categories = Category::paginate(5);
+        $categories = Category::paginate(2);
         $viewData =[
             'categories' => $categories
         ];
